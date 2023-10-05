@@ -37,23 +37,41 @@ const resources = [
       content: "Re-usable components built using Radix UI and Tailwind CSS",
     },
   ],
+  [
+    {
+      id: "title",
+      name: "Title",
+      content: "Hero Icons",
+    },
+    {
+      id: "link",
+      name: "Link",
+      content: "https://heroicons.com/",
+      type: "link",
+    },
+    {
+      id: "description",
+      name: "Description",
+      content: "I suka dia punya icon",
+    },
+  ],
 ]
 
 const ResourceCard: FC<any> = (props) => {
   const { resource } = props;
 
   return (
-    <div className="flow-root rounded-lg border border-gray-200 py-3 shadow-sm">
+    <div className="flow-root rounded-lg border border-gray-200 dark:border-gray-600 py-3 shadow-sm">
 
-      <dl className="-my-3 divide-y divide-gray-100 text-sm">
+      <dl className="-my-3 divide-y divide-gray-100 dark:divide-gray-600 text-sm">
         {resource.map((list: any, index: number) => {
           return (
             <div
               key={index}
-              className="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4"
+              className="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 even:dark:bg-gray-700 sm:grid-cols-3 sm:gap-4"
             >
-              <dt className="font-medium text-gray-900">{list.name}</dt>
-              <dd className="text-gray-700 sm:col-span-2">{list.content}</dd>
+              <dt className="font-medium text-gray-900 dark:text-gray-200">{list.name}</dt>
+              <dd className="text-gray-700 dark:text-gray-300 sm:col-span-2">{list.content}</dd>
             </div>
           )
 
@@ -68,7 +86,7 @@ const Resources: FC = () => {
   return (
     <div>
       {resources.map((resource, index) => (
-        <div className="mb-3">
+        <div className="mb-20" key={index}>
           <ResourceCard 
             key={index} 
             resource={resource}

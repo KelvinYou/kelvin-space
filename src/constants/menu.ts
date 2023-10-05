@@ -27,7 +27,16 @@ export const mainMenu: MainMenu[] = [
     id: "home",
     title: "Home",
     link: "/",
-    icon: ICON_TYPE.CLOCK_OUTLINE,
+    icon: ICON_TYPE.HOME_OUTLINE,
+  },
+];
+
+export const componentMenu: MainMenu[] = [
+  {
+    id: "chart",
+    title: "Chart",
+    link: "/component/chart",
+    icon: ICON_TYPE.CHART_OUTLINE,
   },
 ];
 
