@@ -31,6 +31,15 @@ export const mainMenu: MainMenu[] = [
   },
 ];
 
+export const toolMenu: MainMenu[] = [
+  {
+    id: "watermark",
+    title: "Watermark",
+    link: "/tool/watermark",
+    icon: ICON_TYPE.CHART_OUTLINE,
+  },
+];
+
 export const componentMenu: MainMenu[] = [
   {
     id: "chart",

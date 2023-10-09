@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 import { CiViewList } from "react-icons/ci";
 import { MdChairAlt } from "react-icons/md";
 import { AiOutlineFolderAdd, AiOutlineSetting } from "react-icons/ai";
-import { componentMenu, mainMenu, otherMenu } from '@/constants/menu';
+import { componentMenu, mainMenu, otherMenu, toolMenu } from '@/constants/menu';
 import SvgIcon from '@/assets/SvgIcon';
 import { common } from '@/constants';
 
@@ -29,6 +29,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       id: "main",
       name: "Main",
       menu: mainMenu,
+    },
+    {
+      id: "tool",
+      name: "Tools",
+      menu: toolMenu,
     },
     {
       id: "component",
