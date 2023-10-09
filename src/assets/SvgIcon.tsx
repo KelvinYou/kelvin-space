@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useTheme } from "next-themes"
 import { ThemeMode } from '@/components/theme-provider';
 
