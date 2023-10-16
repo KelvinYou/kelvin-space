@@ -11,7 +11,7 @@ import { componentMenu, mainMenu, otherMenu, toolMenu } from '@/constants/menu';
 import SvgIcon from '@/assets/SvgIcon';
 import { common } from '@/constants';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
-import AppSwitcher from './AppSwitcher';
+import MenuSelector from './MenuSelector';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -110,7 +110,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
         <nav className="mt-5 py-4 px-4">
-          <AppSwitcher />
+          <div className="mb-5">
+            <MenuSelector />
+          </div>
           {navLinks.map((navLink, index) => {
             return (
               <div key={navLink.id + index}>
