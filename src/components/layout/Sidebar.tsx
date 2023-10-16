@@ -10,6 +10,8 @@ import { AiOutlineFolderAdd, AiOutlineSetting } from "react-icons/ai";
 import { componentMenu, mainMenu, otherMenu, toolMenu } from '@/constants/menu';
 import SvgIcon from '@/assets/SvgIcon';
 import { common } from '@/constants';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
+import AppSwitcher from './AppSwitcher';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -27,7 +29,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const navLinks = [
     {
       id: "main",
-      name: "Main",
+      // name: "Main",
       menu: mainMenu,
     },
     {
@@ -108,12 +110,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
         <nav className="mt-5 py-4 px-4">
+          <AppSwitcher />
           {navLinks.map((navLink, index) => {
             return (
-              <div key={navLink.name}>
-                <h3 className="mb-4 ml-4 text-sm font-semibold text-gray-400 dark:text-gray-400">
-                  {navLink.name.toUpperCase()}
-                </h3>
+              <div key={navLink.id + index}>
+                {navLink.name && 
+                  <h3 className="mb-4 ml-4 text-sm font-semibold text-gray-400 dark:text-gray-400">
+                    {navLink.name.toUpperCase()}
+                  </h3>
+                }
 
                 <ul className="mb-6 flex flex-col gap-1.5">
 

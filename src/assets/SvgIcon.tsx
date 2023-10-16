@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTheme } from "next-themes"
 import { ThemeMode } from '@/components/theme-provider';
 
@@ -20,6 +20,11 @@ type SvgIconType = {
 
 const SvgIcon = (props: SvgIconType) => {
   const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   
   const { 
     type = ICON_TYPE.LOCATION_OUTLINE,
@@ -83,6 +88,8 @@ const SvgIcon = (props: SvgIconType) => {
 
   const icon = svgIcons.find((svgIcon) => svgIcon.name === type);
 
+  if (!mounted) return null;
+  
   return (
     <>
       {icon?.path}

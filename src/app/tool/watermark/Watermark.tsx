@@ -16,8 +16,6 @@ const Watermark: FC = () => {
       ".watermarked"
     );
 
-    console.log("watermark ", watermark);
-
     if (selectedImage) {
       if (watermark) {
         imgContainerSelector.dataset.watermark = (
@@ -65,12 +63,12 @@ const Watermark: FC = () => {
       {selectedImage && (
         <div className="watermarked flex items-center justify-center mt-5 w-full" data-watermark={customWatermark}>
           <Image 
-          src={selectedImage}
-          alt="image"     
-          width={500}
-          height={500}
-          // layout='fill'
-          // objectFit='contain'
+            src={selectedImage}
+            alt="image"     
+            width={500}
+            height={500}
+            // layout='fill'
+            // objectFit='contain'
           />
         </div>
       )}
