@@ -1,8 +1,11 @@
 import React from 'react'
+import BarChart from './BarChart'
 
 const Page = () => {
   return (
-    <div>Chart</div>
+    <>
+      <BarChart />
+    </>
   )
 }
 
