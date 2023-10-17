@@ -1,15 +1,19 @@
 "use client";
 import { customHooks } from '@/hooks';
+import { useSearchParams } from 'next/navigation';
 import React from 'react'
 
 const Page = () => {
-  const demoHook = "useKeyPress";
+  const searchParams = useSearchParams();
+  const id = searchParams.get('id') || '';
 
-  const showCase = customHooks[demoHook];
+  const showCase = customHooks[id];
 
   return (
     <div>
-      {showCase.demo}
+      {showCase && showCase.demo && showCase.demo}
+
+      {!showCase && "Not found"}
     </div>
   )
 }

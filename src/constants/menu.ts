@@ -4,6 +4,7 @@
 // } from "@/assets";
 
 import { ICON_TYPE } from "@/assets/SvgIcon";
+import { customHooks } from "@/hooks";
 
 // import { HOME_PATH, PROJECTS_PATH, RESUME_LINK, EXPERIENCES_PATH } from "./routes";
 
@@ -49,14 +50,11 @@ export const componentMenu: MainMenu[] = [
   },
 ];
 
-export const hookMenu: MainMenu[] = [
-  {
-    id: "useKeyPress",
-    title: "useKeyPress",
-    link: "/hook?id=useKeyPress",
-    // icon: ICON_TYPE.CHART_OUTLINE,
-  },
-];
+export const hookMenu = Object.values(customHooks).map(({ id }) => ({ 
+  id,
+  title: id,
+  link: `/hook?id=${id}`
+}));
 
 export const otherMenu: MainMenu[] = [
   {

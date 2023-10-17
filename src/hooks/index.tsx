@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
 import useKeyPress from "./useKeyPress";
-import UseKeyPressDemo from "./useKeyPress/Demo";
+import UseKeyPressDemo from "./useKeyPress/UseKeyPressDemo";
+import { useLocalStorage } from "usehooks-ts";
+import UseLocalStorageDemo from "./useLocalStorage/UseLocalStorageDemo";
 
 interface CustomHook {
   id: string;
@@ -13,5 +15,10 @@ export const customHooks = {
     id: "useKeyPress",
     hook: useKeyPress,
     demo: <UseKeyPressDemo />,
+  },
+  "useLocalStorage": {
+    id: "useLocalStorage",
+    hook: useLocalStorage,
+    demo: <UseLocalStorageDemo />,
   }
 }
