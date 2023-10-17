@@ -141,7 +141,7 @@ const MenuSelector = () => {
           <DialogHeader>
             <DialogTitle>Menu Preference</DialogTitle>
             <DialogDescription>
-              Select all the menu bar you want to show, just a demo, haven't done yet
+              Select all the menu bar you want to show, just a demo
             </DialogDescription>
 
           </DialogHeader>
