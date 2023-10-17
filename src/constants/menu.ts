@@ -49,6 +49,15 @@ export const componentMenu: MainMenu[] = [
   },
 ];
 
+export const hookMenu: MainMenu[] = [
+  {
+    id: "useKeyPress",
+    title: "useKeyPress",
+    link: "/hook?id=useKeyPress",
+    // icon: ICON_TYPE.CHART_OUTLINE,
+  },
+];
+
 export const otherMenu: MainMenu[] = [
   {
     id: "resources",
