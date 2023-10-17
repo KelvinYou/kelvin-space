@@ -7,7 +7,7 @@ const UseKeyPressDemo = () => {
 
   return (
     <div>
-      The "w" key is {!wPressed ? 'not ' : ''}pressed!
+      The {' "w" '} key is {!wPressed ? 'not ' : ''}pressed!
 
       <div>
         <br/>
