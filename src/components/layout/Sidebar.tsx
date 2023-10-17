@@ -137,7 +137,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           py-2 px-4 font-medium text-sidebarlinktext duration-300 ease-in-out 
                           hover:bg-gray-200 dark:hover:bg-gray-800 ${pathname === menu.link && "bg-gray-200 dark:bg-gray-800"} dark:hover:bg-meta-4`}>
 
-                            {menu.icon && <SvgIcon type={menu.icon} size={24} className=" fill-black dark:fill-white" />}
+                            {'icon' in menu && menu.icon && 
+                              <SvgIcon type={menu.icon} size={24} className=" fill-black dark:fill-white" />
+                            }
 
                             <span className="ml-3">{menu.title}</span>
                         </Link>
