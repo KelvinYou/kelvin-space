@@ -4,7 +4,7 @@
 // } from "@/assets";
 
 import { ICON_TYPE } from "@/assets/SvgIcon";
-import { customHooks } from "@/hooks";
+import { CUSTOM_HOOKS } from "@/hooks";
 
 // import { HOME_PATH, PROJECTS_PATH, RESUME_LINK, EXPERIENCES_PATH } from "./routes";
 
@@ -50,7 +50,7 @@ export const componentMenu: MainMenu[] = [
   },
 ];
 
-export const hookMenu = Object.values(customHooks).map(({ id }) => ({ 
+export const hookMenu = Object.values(CUSTOM_HOOKS).map(({ id }: any) => ({ 
   id,
   title: id,
   link: `/hook?id=${id}`

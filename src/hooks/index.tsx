@@ -10,7 +10,7 @@ interface CustomHook {
   demo: ReactNode; // Adjust the type to ReactNode
 }
 
-export const customHooks = {
+export const CUSTOM_HOOKS: any = {
   "useKeyPress": {
     id: "useKeyPress",
     hook: useKeyPress,

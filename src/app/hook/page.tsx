@@ -1,5 +1,5 @@
 "use client";
-import { customHooks } from '@/hooks';
+import { CUSTOM_HOOKS } from '@/hooks';
 import { useSearchParams } from 'next/navigation';
 import React from 'react'
 
@@ -7,7 +7,7 @@ const Page = () => {
   const searchParams = useSearchParams();
   const id = searchParams.get('id') || '';
 
-  const showCase = customHooks[id];
+  const showCase = CUSTOM_HOOKS[id];
 
   return (
     <div>
