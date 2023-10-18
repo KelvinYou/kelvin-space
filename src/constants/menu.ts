@@ -1,8 +1,3 @@
-// import { 
-//   experienceIcon, 
-//   homeIcon 
-// } from "@/assets";
-
 import { ICON_TYPE } from "@/assets/SvgIcon";
 import { CUSTOM_HOOKS } from "@/hooks";
 
@@ -22,6 +17,7 @@ type SubMenu = {
   subMenu?: SubMenu[];
   link?: string;
 }
+
 
 export const mainMenu: MainMenu[] = [
   {
@@ -64,3 +60,43 @@ export const otherMenu: MainMenu[] = [
     icon: ICON_TYPE.LOCATION_OUTLINE,
   },
 ];
+
+export const navLinks = [
+  {
+    id: "main",
+    name: "Main",
+    menu: mainMenu,
+  },
+  {
+    id: "hooks",
+    name: "Hooks",
+    isSearch: true,
+    menu: hookMenu,
+  },
+  {
+    id: "tool",
+    name: "Tools",
+    menu: toolMenu,
+  },
+  {
+    id: "component",
+    name: "Components",
+    menu: componentMenu,
+  },
+  {
+    id: "other",
+    name: "Other",
+    menu: otherMenu,
+  },
+]
+
+// local storage constants
+export const SELECTED_MENU_NAME = "selectedMenu";
+
+export const INITIAL_DEFAULT_MENU_LIST = {
+  items: [
+    "main",
+    "hooks",
+    "tool",
+  ],
+};

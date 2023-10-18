@@ -1,58 +1,94 @@
 "use client";
 import Link from 'next/link';
-import React, { useEffect, useRef } from 'react'
-import { useOnClickOutside } from "usehooks-ts";
+import React, { useEffect, useRef, useState } from 'react'
+import { useLocalStorage, useOnClickOutside } from "usehooks-ts";
 import { usePathname } from 'next/navigation'
 
 import { CiViewList } from "react-icons/ci";
 import { MdChairAlt } from "react-icons/md";
-import { AiOutlineFolderAdd, AiOutlineSetting } from "react-icons/ai";
-import { componentMenu, hookMenu, mainMenu, otherMenu, toolMenu } from '@/constants/menu';
+import { AiOutlineFolderAdd, AiOutlineSearch, AiOutlineSetting } from "react-icons/ai";
+import { INITIAL_DEFAULT_MENU_LIST, SELECTED_MENU_NAME, componentMenu, hookMenu, mainMenu, navLinks, otherMenu, toolMenu } from '@/constants/menu';
 import SvgIcon from '@/assets/SvgIcon';
 import { common } from '@/constants';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 import MenuSelector from './MenuSelector';
+import { Input } from '../ui/input';
 
 interface SidebarProps {
   sidebarOpen: boolean;
   setSidebarOpen(open: boolean): void;
 };
 
+const MenuList = (props: any) => {
+  const { navLink, pathname, setSidebarOpen } = props;
+  const [searchQuery, setSearchQuery] = useState<string>("");
+
+  // Filter the menu items based on the search query
+  const filteredMenu = navLink.menu.filter(
+    (menu: any) =>
+      !searchQuery ||
+      menu.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  return (
+    <>
+      {navLink.isSearch && (
+        <div className="flex items-center relative mb-5">
+          {/* Search Icon */}
+          <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+            <AiOutlineSearch />
+          </span>
+
+          {/* Input Component */}
+          <Input
+            type="text"
+            placeholder={`Search in ${navLink.name} ...`}
+            className="pl-10"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
+      )}
+
+      <ul className="mb-6 flex flex-col gap-1.5">
+        {filteredMenu.length > 0 ? filteredMenu.map((menu: any, index: any) => (
+          <li key={menu.title + index}>
+            <Link
+              href={menu.link || ""}
+              onClick={() => setSidebarOpen(false)}
+              className={`group relative flex items-center gap-2.5 rounded-sm 
+                py-2 px-4 font-medium text-sidebarlinktext duration-300 ease-in-out 
+                hover:bg-gray-200 dark:hover:bg-gray-800 ${
+                  pathname === menu.link && "bg-gray-200 dark:bg-gray-800"
+                } dark:hover:bg-meta-4`}
+            >
+              {"icon" in menu && menu.icon && (
+                <SvgIcon
+                  type={menu.icon}
+                  size={24}
+                  className=" fill-black dark:fill-white"
+                />
+              )}
+
+              <span className="ml-3">{menu.title}</span>
+            </Link>
+          </li>
+        )) : <>No result</>}
+      </ul>
+    </>
+  );
+};
+
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
-  const pathname = usePathname()
+  const [selectedMenu, setSelectedMenu] = useLocalStorage<any>(SELECTED_MENU_NAME, null);
+  const { items: menuItems } = selectedMenu || INITIAL_DEFAULT_MENU_LIST;
+
+  const pathname = usePathname();
   
   const ref = useRef<HTMLDivElement>(null);
   
   const trigger = useRef<any>(null);
   const sidebar = useRef<any>(null);
-
-  const navLinks = [
-    {
-      id: "main",
-      // name: "Main",
-      menu: mainMenu,
-    },
-    {
-      id: "hook",
-      name: "Hook",
-      menu: hookMenu,
-    },
-    {
-      id: "tool",
-      name: "Tools",
-      menu: toolMenu,
-    },
-    {
-      id: "component",
-      name: "Components",
-      menu: componentMenu,
-    },
-    {
-      id: "other",
-      name: "Other",
-      menu: otherMenu,
-    },
-  ]
 
   // close on click outside
   useEffect(() => {
@@ -73,6 +109,18 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   useOnClickOutside(ref, (e) => {
     setSidebarOpen(false);
   });
+
+  const renderMenuList = (navLink: any, index: number, setSidebarOpen: any) => (
+    <div key={navLink.id + index}>
+      {navLink.name && (
+        <h3 className="mb-4 ml-4 text-sm font-semibold text-gray-400 dark:text-gray-400">
+          {navLink.name.toUpperCase()}
+        </h3>
+      )}
+  
+      <MenuList navLink={navLink} pathname={pathname} setSidebarOpen={setSidebarOpen} />
+    </div>
+  );
 
   return (
     <aside
@@ -113,43 +161,19 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         </button>
       </div>
 
-      <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
+      <div 
+        className="no-scrollbar flex flex-col duration-300 ease-linear"
+        style={{ maxHeight: '100%', overflowY: 'auto' }}
+      >
         <nav className="mt-5 py-4 px-4">
           <div className="mb-5">
             <MenuSelector />
           </div>
-          {navLinks.map((navLink, index) => {
-            return (
-              <div key={navLink.id + index}>
-                {navLink.name && 
-                  <h3 className="mb-4 ml-4 text-sm font-semibold text-gray-400 dark:text-gray-400">
-                    {navLink.name.toUpperCase()}
-                  </h3>
-                }
-
-                <ul className="mb-6 flex flex-col gap-1.5">
-
-                  {navLink.menu.map((menu, index) => {
-                    return (
-                      <li key={menu.title + index}>
-                        <Link href={menu.link || ""} onClick={() => setSidebarOpen(false)} 
-                          className={`group relative flex items-center gap-2.5 rounded-sm 
-                          py-2 px-4 font-medium text-sidebarlinktext duration-300 ease-in-out 
-                          hover:bg-gray-200 dark:hover:bg-gray-800 ${pathname === menu.link && "bg-gray-200 dark:bg-gray-800"} dark:hover:bg-meta-4`}>
-
-                            {'icon' in menu && menu.icon && 
-                              <SvgIcon type={menu.icon} size={24} className=" fill-black dark:fill-white" />
-                            }
-
-                            <span className="ml-3">{menu.title}</span>
-                        </Link>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-            )
-          })}
+          {menuItems && menuItems.length > 0
+          ? navLinks
+              .filter((navLink) => menuItems.includes(navLink.id))
+              .map((navLink, index) => renderMenuList(navLink, index, setSidebarOpen))
+          : navLinks.map((navLink, index) => renderMenuList(navLink, index, setSidebarOpen))}
       
         </nav>
       </div>

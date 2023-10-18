@@ -1,8 +1,10 @@
+const Home = () => {
 
-export default function Home() {
   return (
     <main className="flex">
-      Hello World
+      Home
     </main>
   )
 }
+
+export default Home

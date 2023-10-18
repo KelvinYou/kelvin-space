@@ -2,11 +2,14 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import React, { useEffect } from 'react';
 import * as echarts from 'echarts/core';
+import { TooltipComponent } from 'echarts/components';
+import { LegendComponent } from 'echarts/components';
+
 import { GridComponent, GridComponentOption } from 'echarts/components';
 import { BarChart, BarSeriesOption } from 'echarts/charts';
 import { CanvasRenderer } from 'echarts/renderers';
 
-echarts.use([GridComponent, BarChart, CanvasRenderer]);
+echarts.use([GridComponent, BarChart, CanvasRenderer, LegendComponent, TooltipComponent]);
 
 type EChartsOption = echarts.ComposeOption<GridComponentOption | BarSeriesOption>;
 
