@@ -81,6 +81,7 @@ const MenuList = (props: any) => {
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const [selectedMenu, setSelectedMenu] = useLocalStorage<any>(SELECTED_MENU_NAME, null);
+  // const { items: menuItems } = INITIAL_DEFAULT_MENU_LIST;
   const { items: menuItems } = selectedMenu || INITIAL_DEFAULT_MENU_LIST;
 
   const pathname = usePathname();

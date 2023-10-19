@@ -1,23 +1,39 @@
 "use client"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import React, { useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import * as echarts from 'echarts/core';
-import { TooltipComponent } from 'echarts/components';
+import { TitleComponent, ToolboxComponent, TooltipComponent } from 'echarts/components';
 import { LegendComponent } from 'echarts/components';
 
 import { GridComponent, GridComponentOption } from 'echarts/components';
-import { BarChart, BarSeriesOption } from 'echarts/charts';
+import { BarChart as EBarChart, BarSeriesOption } from 'echarts/charts';
 import { CanvasRenderer } from 'echarts/renderers';
+import { useTheme } from 'next-themes';
 
-echarts.use([GridComponent, BarChart, CanvasRenderer, LegendComponent, TooltipComponent]);
+echarts.use([
+  TitleComponent,
+  ToolboxComponent,
+  GridComponent, 
+  EBarChart, 
+  CanvasRenderer, 
+  LegendComponent, 
+  TooltipComponent,
+]);
 
 type EChartsOption = echarts.ComposeOption<GridComponentOption | BarSeriesOption>;
 
-const BarChartComponent = () => {
+type BarChartType = {
+  id: string
+}
+
+const BarChart: FC<BarChartType> = (props) => {
+  const { id = "echart" } = props;
+  const { theme } = useTheme();
+
   useEffect(() => {
-    // Initialize the chart after the component mounts
-    const chartDom = document.getElementById('echart'); // Assuming you have an element with id="echart"
-    const myChart = echarts.init(chartDom);
+    
+    const chartDom = document.getElementById(id); 
+    const myChart = echarts.init(chartDom, theme);
 
     const option: EChartsOption = {
       tooltip: {
@@ -26,6 +42,20 @@ const BarChartComponent = () => {
           type: 'shadow'
         }
       },
+      // tooltip: {
+      //   trigger: 'axis',
+      //      axisPointer: {
+      //        type: 'shadow',
+      //      },
+      //     formatter: (params) => {
+      //       return (
+      //         "Text One" +
+      //         '<br/>' +
+          
+      //         params[0].name
+      //       );
+      //     },
+      //   },
       legend: {
         data: ['Direct', 'Email', 'Union Ads', 'Video Ads', 'Search Engine', 'Baidu', 'Google', 'Bing', 'Others'],
         show: true, // Set this to true to show the legend
@@ -35,6 +65,11 @@ const BarChartComponent = () => {
         right: '4%',
         bottom: '3%',
         containLabel: true
+      },
+      toolbox: {
+        feature: {
+          saveAsImage: {} // download
+        }
       },
       xAxis: [
         {
@@ -134,7 +169,7 @@ const BarChartComponent = () => {
           },
           data: [62, 82, 91, 84, 109, 110, 120]
         }
-      ]
+      ],
     };
 
     // Set the chart options
@@ -152,28 +187,11 @@ const BarChartComponent = () => {
       });
       myChart.dispose();
     };
-  }, []); // Empty dependency array ensures that this effect runs only once on mount
+  }, [theme]);
 
   return (
-    <div>
-      <Card>
-        <CardHeader>
-          <CardTitle>Bar Chart</CardTitle>
-          <CardDescription>I use the Apache ECharts as my primary chart</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div id="echart" style={{ height: '400px', width: '100%' }}></div>
-        </CardContent>
-        <CardFooter>
-          <p>Reference: 
-            <a href="https://echarts.apache.org/examples/en/index.html" target="_blank">
-              https://echarts.apache.org/examples/en/index.html
-            </a>
-          </p>
-        </CardFooter>
-      </Card>
-    </div>
+    <div id={id} style={{ height: '400px', width: '100%' }}></div>
   );
 };
 
-export default BarChartComponent;
+export default BarChart;
