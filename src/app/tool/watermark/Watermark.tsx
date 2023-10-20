@@ -45,36 +45,37 @@ const Watermark: FC = () => {
   };
 
   return (
-    <div className="App" ref={imgContainerRef}>
+    <>
+      <div ref={imgContainerRef}>
+        <Input type="file" accept="image/*" onChange={handleImageChange} />
+        <br />
+        {selectedImage && (
+          <div className="watermarked flex items-center h-[500px] justify-center mt-5 w-full" data-watermark={customWatermark}>
+            <Image 
+              src={selectedImage}
+              alt="image"     
+              width={500}
+              height={500}
+              // layout='fill'
+              // objectFit='contain'
+            />
+          </div>
+        )}
+        <br />
 
-      <Input type="file" accept="image/*" onChange={handleImageChange} />
-      <br />
-      <br />
-
-      <div>
-        <label>Custom Watermark: </label>
-        <Input
-          type="text"
-          value={customWatermark}
-          onChange={handleCustomWatermarkChange}
-        />
-      </div>
-
-      {selectedImage && (
-        <div className="watermarked flex items-center justify-center mt-5 w-full" data-watermark={customWatermark}>
-          <Image 
-            src={selectedImage}
-            alt="image"     
-            width={500}
-            height={500}
-            // layout='fill'
-            // objectFit='contain'
+        <div>
+          <label>Custom Watermark: </label>
+          <Input
+            type="text"
+            value={customWatermark}
+            onChange={handleCustomWatermarkChange}
           />
         </div>
-      )}
 
-      <Button className="mt-5" onClick={toggleWatermark}>{watermark ? "Remove" : "Add"} {" "}watermark</Button>
-    </div>
+        <Button className="mt-5" onClick={toggleWatermark}>{watermark ? "Remove" : "Add"} {" "}watermark</Button>
+      </div>
+    </>
+
   );
 };
 
