@@ -28,13 +28,15 @@ export const mainMenu: MainMenu[] = [
   },
 ];
 
+
+
 export const toolMenu: MainMenu[] = [
   {
     id: "watermark",
     title: "Watermark",
     link: "/tool/watermark",
-    icon: ICON_TYPE.CHART_OUTLINE,
   },
+
 ];
 
 export const componentMenu: MainMenu[] = [
@@ -43,6 +45,15 @@ export const componentMenu: MainMenu[] = [
     title: "Chart",
     link: "/component/chart",
     icon: ICON_TYPE.CHART_OUTLINE,
+  },
+];
+
+export const utilMenu: MainMenu[] = [
+  {
+    id: "moment",
+    title: "Moment",
+    link: "/util/moment",
+    // icon: ICON_TYPE.CHART_OUTLINE,
   },
 ];
 
@@ -84,6 +95,11 @@ export const navLinks = [
     menu: componentMenu,
   },
   {
+    id: "util",
+    name: "Utils",
+    menu: utilMenu,
+  },
+  {
     id: "other",
     name: "Other",
     menu: otherMenu,
@@ -95,8 +111,6 @@ export const SELECTED_MENU_NAME = "selectedMenu";
 
 export const INITIAL_DEFAULT_MENU_LIST = {
   items: [
-    "main",
-    "hooks",
-    "tool",
+    "util"
   ],
 };
