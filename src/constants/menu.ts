@@ -46,6 +46,12 @@ export const componentMenu: MainMenu[] = [
     link: "/component/chart",
     icon: ICON_TYPE.CHART_OUTLINE,
   },
+  {
+    id: "progress-bar",
+    title: "Progress Bar",
+    link: "/component/progress-bar",
+    icon: ICON_TYPE.CHART_OUTLINE,
+  },
 ];
 
 export const utilMenu: MainMenu[] = [
