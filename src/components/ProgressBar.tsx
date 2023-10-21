@@ -1,35 +1,50 @@
-import React, { useState } from 'react';
+"use client"
+import React, { useEffect, useState } from 'react';
 
-type ProgressBarType = {
-  percent: number,
-  size: number,
+interface ProgressBarProps {
+  percent: number;
+  size?: number;
 }
 
-const ProgressBar: React.FC<ProgressBarType> = (props) => {
-  const { percent = 0, size = 72 } = props;
+const ProgressBar: React.FC<ProgressBarProps> = ({ percent = 0, size = 45 }) => {
+  const [percentTextSize, setPercentTextSize] = useState<number>(size);
 
-  const circumference = 2 * Math.PI * 120;
-
+  const radius = (size / 2.4).toString();
+  const circumference = 2 * Math.PI * parseFloat(radius);
+  const strokeWidth = size / 9.6;
   const formattedPercent = parseFloat(percent.toFixed(2));
+
+  useEffect(() => {
+    // Update text size when the size prop changes
+    setPercentTextSize(size);
+  }, [size]);
 
   return (
     <div className="flex items-center justify-center">
-      <svg className={`transform -rotate-90 w-${size} h-${size}`}>
-        <circle cx="145" cy="145" r="120" stroke="currentColor" strokeWidth="30" fill="transparent" className="text-gray-700" />
+      <svg viewBox={`0 0 ${size} ${size}`} className="transform -rotate-90 w-full h-full">
+        <circle
+          cx={(size / 2).toString()}
+          cy={(size / 2).toString()}
+          r={radius}
+          stroke="currentColor"
+          strokeWidth={strokeWidth.toString()}
+          fill="transparent"
+          className="text-gray-700"
+        />
 
         <circle
-          cx="145"
-          cy="145"
-          r="120"
+          cx={(size / 2).toString()}
+          cy={(size / 2).toString()}
+          r={radius}
           stroke="currentColor"
-          strokeWidth="30"
+          strokeWidth={strokeWidth.toString()}
           fill="transparent"
           strokeDasharray={circumference}
           strokeDashoffset={circumference - (percent / 100) * circumference}
           className="text-blue-500 transition-all duration-200"
         />
       </svg>
-      <span className="absolute text-[48px]">{`${formattedPercent}%`}</span>
+      <span className="absolute" style={{ fontSize: `${percentTextSize}px` }}>{`${formattedPercent}%`}</span>
     </div>
   );
 };

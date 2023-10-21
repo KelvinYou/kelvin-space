@@ -12,7 +12,10 @@ const Page = () => {
             <CardDescription></CardDescription>
           </CardHeader>
           <CardContent>
-            <ProgressBar percent={80}/>
+            <div className='w-24 h-24'>
+              <ProgressBar percent={50} size={24}/>
+
+            </div>
           </CardContent>
           <CardFooter>
             {/* <p>Reference: 
