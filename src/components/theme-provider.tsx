@@ -7,6 +7,7 @@ import { type ThemeProviderProps } from "next-themes/dist/types"
 export enum ThemeMode {
   Light = 'light',
   Dark = 'dark',
+  System = 'system',
 }
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {

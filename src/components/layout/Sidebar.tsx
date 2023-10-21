@@ -175,9 +175,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               .filter((navLink) => menuItems.includes(navLink.id))
               .map((navLink, index) => renderMenuList(navLink, index, setSidebarOpen))
           : navLinks.map((navLink, index) => renderMenuList(navLink, index, setSidebarOpen))}
-      
+
+          <div className='h-24'></div>
         </nav>
       </div>
+
     </aside>
   )
 }

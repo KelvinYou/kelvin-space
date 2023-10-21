@@ -1,3 +1,5 @@
+"use client"
+
 import { ICON_TYPE } from "@/assets/SvgIcon";
 import { CUSTOM_HOOKS } from "@/hooks";
 
@@ -50,7 +52,7 @@ export const componentMenu: MainMenu[] = [
     id: "progress-bar",
     title: "Progress Bar",
     link: "/component/progress-bar",
-    icon: ICON_TYPE.CHART_OUTLINE,
+    icon: ICON_TYPE.CIRCLE,
   },
 ];
 
@@ -68,6 +70,23 @@ export const hookMenu = Object.values(CUSTOM_HOOKS).map(({ id }: any) => ({
   title: id,
   link: `/hook?id=${id}`
 }));
+
+export const externalMenu = [
+  {
+    id: "payroll",
+    title: "Payroll",
+    link: "/external/payroll",
+    externalLink: "https://payroll.my/",
+    icon: ICON_TYPE.BANK_NOTE,
+  },
+  {
+    id: "progress-bar",
+    title: "Progress Bar",
+    link: "/external/progress-bar",
+    externalLink: "https://www.calculator.net/loan-calculator.html",
+    icon: ICON_TYPE.CIRCLE,
+  },
+]
 
 export const otherMenu: MainMenu[] = [
   {
@@ -104,6 +123,11 @@ export const navLinks = [
     id: "util",
     name: "Utils",
     menu: utilMenu,
+  },  
+  {
+    id: "external",
+    name: "Externals",
+    menu: externalMenu,
   },
   {
     id: "other",
@@ -117,6 +141,7 @@ export const SELECTED_MENU_NAME = "selectedMenu";
 
 export const INITIAL_DEFAULT_MENU_LIST = {
   items: [
-    "util"
+    "main",
+    "external",
   ],
 };

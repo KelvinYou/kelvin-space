@@ -15,7 +15,7 @@ const DashboardLayout = (props: PropsWithChildren) => {
       
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       
-      <div className="p-4 sm:ml-64 min-h-screen bg-gray-100 dark:bg-gray-800">
+      <div className="sm:ml-64 h-[calc(100vh-70px)] bg-gray-100 dark:bg-gray-800">
         {props.children}
       </div>
     </div>
