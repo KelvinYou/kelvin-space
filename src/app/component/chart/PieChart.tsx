@@ -37,11 +37,11 @@ const PieChart: FC<PieChartType> = (props) => {
     const myChart = echarts.init(chartDom, theme);
 
     const option: EChartsOption = {
-      title: {
-        text: 'Referer of a Website',
-        subtext: 'Fake Data',
-        left: 'center'
-      },
+      // title: {
+      //   text: 'Referer of a Website',
+      //   subtext: 'Fake Data',
+      //   left: 'center'
+      // },
       tooltip: {
         trigger: 'item'
       },

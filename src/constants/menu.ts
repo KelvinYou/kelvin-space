@@ -1,5 +1,3 @@
-"use client"
-
 import { ICON_TYPE } from "@/assets/SvgIcon";
 import { CUSTOM_HOOKS } from "@/hooks";
 
@@ -38,7 +36,11 @@ export const toolMenu: MainMenu[] = [
     title: "Watermark",
     link: "/tool/watermark",
   },
-
+  {
+    id: "qr-code",
+    title: "QR Code",
+    link: "/tool/qr-code",
+  },
 ];
 
 export const componentMenu: MainMenu[] = [
@@ -80,11 +82,25 @@ export const externalMenu = [
     icon: ICON_TYPE.BANK_NOTE,
   },
   {
-    id: "progress-bar",
-    title: "Progress Bar",
-    link: "/external/progress-bar",
+    id: "loan-calculator",
+    title: "Loan Calculator",
+    link: "/external/loan-calculator",
     externalLink: "https://www.calculator.net/loan-calculator.html",
     icon: ICON_TYPE.CIRCLE,
+  },
+  {
+    id: "xe-rate",
+    title: "Xe Rate",
+    link: "/external/xe-rate",
+    externalLink: "https://www.xe.com/currencycharts/?from=USD&to=MYR",
+    icon: ICON_TYPE.ARROW_RIGHT_LEFT,
+  },
+  {
+    id: "qr",
+    title: "QR Generator",
+    link: "/external/qr",
+    externalLink: "https://qr.io/",
+    icon: ICON_TYPE.QR_CODE,
   },
 ]
 

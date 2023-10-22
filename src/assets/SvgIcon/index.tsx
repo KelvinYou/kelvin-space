@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useTheme } from "next-themes"
 import { ThemeMode } from '@/components/theme-provider';
-import { Banknote, Circle } from 'lucide-react';
+import { Banknote, Circle, QrCode, ArrowRightLeft } from 'lucide-react';
 
 export const ICON_TYPE = {
   LOCATION_OUTLINE: "location_outline",
@@ -13,6 +13,8 @@ export const ICON_TYPE = {
   CHART_OUTLINE: "chart_outline",
   CIRCLE: "circle",
   BANK_NOTE: "bank_note",
+  QR_CODE: "qr_code",
+  ARROW_RIGHT_LEFT: "arrow_right_left",
 }
 type SvgIconType = {
   type?: string;
@@ -117,7 +119,15 @@ const SvgIcon = (props: SvgIconType) => {
     {
       name: ICON_TYPE.BANK_NOTE,
       path: <Banknote />,
-    }
+    },
+    {
+      name: ICON_TYPE.QR_CODE,
+      path: <QrCode />,
+    },
+    {
+      name: ICON_TYPE.ARROW_RIGHT_LEFT,
+      path: <ArrowRightLeft />,
+    },
 
   ]
 

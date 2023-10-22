@@ -4,7 +4,6 @@ import React from 'react'
 
 const Page = ({ params } : { params: any}) => {
   
-  
   const currentMenu = externalMenu.find((menu: any) => {
     return menu.id === params.id
   });

@@ -1,6 +1,12 @@
 import ProgressBar from '@/components/ProgressBar'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
 import React from 'react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Progress Bar | Kelvin You\'s Space',
+  description: 'A space that to record my love',
+}
 
 const Page = () => {
   return (

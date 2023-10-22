@@ -36,9 +36,9 @@ const LineChart: FC<LineChartType> = (props) => {
   const { theme } = useTheme();
 
   const option: EChartsOption = {
-    title: {
-      text: 'Stacked Line'
-    },
+    // title: {
+    //   text: 'Stacked Line'
+    // },
     tooltip: {
       trigger: 'axis'
     },
