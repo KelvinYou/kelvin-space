@@ -29,8 +29,7 @@
   transform: rotate(-45deg);
   content: attr(data-watermark);
 
-  opacity: 0.2;
+  opacity: 0.8;
   line-height: 3em;
   letter-spacing: 2px;
-  color: #fff;
 }

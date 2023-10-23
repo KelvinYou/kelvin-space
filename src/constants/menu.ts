@@ -67,12 +67,19 @@ export const componentMenu: MainMenu[] = [
 
 export const UTIL_PATH = "/util";
 export const UTIL_MOMENT_PATH = UTIL_PATH + "/moment";
+export const UTIL_TEXT_PATH = UTIL_PATH + "/text";
 
 export const utilMenu: MainMenu[] = [
   {
     id: "moment",
     title: "Moment",
     link: UTIL_MOMENT_PATH,
+    // icon: ICON_TYPE.CHART_OUTLINE,
+  },
+  {
+    id: "text",
+    title: "Text",
+    link: UTIL_TEXT_PATH,
     // icon: ICON_TYPE.CHART_OUTLINE,
   },
 ];

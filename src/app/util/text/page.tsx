@@ -1,10 +1,10 @@
+import TruncatedText from '@/components/TruncatedText'
 import React from 'react'
-import moment from 'moment'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import FormatDates from './FormatDates';
+
 import { Metadata } from 'next';
+import { HOME_PATH, UTIL_PATH, UTIL_TEXT_PATH } from '@/constants/menu';
 import BreadCrumb from '@/components/BreadCrumb';
-import { HOME_PATH, UTIL_MOMENT_PATH, UTIL_PATH } from '@/constants/menu';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 
 export const metadata: Metadata = {
   title: 'Moment | Kelvin You\'s Space',
@@ -14,11 +14,10 @@ export const metadata: Metadata = {
 const breadcrumbItems = [
   { label: 'Home', link: HOME_PATH },
   { label: 'Util', link: UTIL_PATH },
-  { label: 'Moment', link: UTIL_MOMENT_PATH  },
+  { label: 'Text', link: UTIL_TEXT_PATH  },
 ];
 
-
-const Page = () => {
+const TextUtilPage = () => {
   return (
     <div className='p-4'>
       <BreadCrumb items={breadcrumbItems} />
@@ -29,15 +28,15 @@ const Page = () => {
           <CardDescription>All the format I current have with dates</CardDescription>
         </CardHeader>
         <CardContent>
-          <FormatDates />
+          still searching the way to improve
+          <TruncatedText text='usdfghudhfvicneewuchwehcechuwechcihw' maxLength={10}/>
+    
         </CardContent>
         <CardFooter>
         </CardFooter>
       </Card>
-
     </div>
-    
   )
 }
 
-export default Page
+export default TextUtilPage
