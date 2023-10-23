@@ -77,10 +77,13 @@ export const utilMenu: MainMenu[] = [
   },
 ];
 
+export const HOOK_PATH = "/hook";
+export const HOOK_ITEM_PATH = HOOK_PATH + "?id=";
+
 export const hookMenu = Object.values(CUSTOM_HOOKS).map(({ id }: any) => ({ 
   id,
   title: id,
-  link: `/hook?id=${id}`
+  link: `${HOOK_ITEM_PATH}${id}`
 }));
 
 export const externalMenu = [
