@@ -1,3 +1,4 @@
+"use client"
 import { ICON_TYPE } from "@/assets/SvgIcon";
 import { CUSTOM_HOOKS } from "@/hooks";
 
@@ -19,11 +20,13 @@ type SubMenu = {
 }
 
 
+export const HOME_PATH = "/";
+
 export const mainMenu: MainMenu[] = [
   {
     id: "home",
     title: "Home",
-    link: "/",
+    link: HOME_PATH,
     icon: ICON_TYPE.HOME_OUTLINE,
   },
 ];
@@ -43,17 +46,21 @@ export const toolMenu: MainMenu[] = [
   },
 ];
 
+export const COMPONENT_PATH = "/component";
+export const COMPONENT_CHART_PATH = COMPONENT_PATH + "/chart";
+export const COMPONENT_PROGRESS_BAR_PATH = COMPONENT_PATH + "/progress-bar";
+
 export const componentMenu: MainMenu[] = [
   {
     id: "chart",
     title: "Chart",
-    link: "/component/chart",
+    link: COMPONENT_CHART_PATH,
     icon: ICON_TYPE.CHART_OUTLINE,
   },
   {
     id: "progress-bar",
     title: "Progress Bar",
-    link: "/component/progress-bar",
+    link: COMPONENT_PROGRESS_BAR_PATH,
     icon: ICON_TYPE.CIRCLE,
   },
 ];
@@ -101,6 +108,13 @@ export const externalMenu = [
     link: "/external/qr",
     externalLink: "https://qr.io/",
     icon: ICON_TYPE.QR_CODE,
+  },
+  {
+    id: "hyper-ui",
+    title: "Hyper UI",
+    link: "/external/hyper-ui",
+    externalLink: "https://www.hyperui.dev/",
+    // icon: ICON_TYPE.QR_CODE,
   },
 ]
 

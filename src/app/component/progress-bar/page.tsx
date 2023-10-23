@@ -2,15 +2,25 @@ import ProgressBar from '@/components/ProgressBar'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
 import React from 'react'
 import type { Metadata } from 'next'
+import { COMPONENT_PATH, COMPONENT_PROGRESS_BAR_PATH, HOME_PATH } from '@/constants/menu'
+import BreadCrumb from '@/components/BreadCrumb'
 
 export const metadata: Metadata = {
   title: 'Progress Bar | Kelvin You\'s Space',
   description: 'A space that to record my love',
 }
 
+const breadcrumbItems = [
+  { label: 'Home', link: HOME_PATH },
+  { label: 'Component', link: COMPONENT_PATH },
+  { label: 'Progress Bar', link: COMPONENT_PROGRESS_BAR_PATH },
+];
+
 const Page = () => {
   return (
-    <>
+    <div className='p-4'>
+      <BreadCrumb items={breadcrumbItems} />
+
       <div className='mt-4'>
         <Card>
           <CardHeader>
@@ -32,7 +42,7 @@ const Page = () => {
           </CardFooter>
         </Card>
       </div>
-    </>
+    </div>
   )
 }
 
