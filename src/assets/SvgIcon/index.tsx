@@ -2,20 +2,17 @@
 import React, { useEffect, useState } from 'react'
 import { useTheme } from "next-themes"
 import { ThemeMode } from '@/components/theme-provider';
-import { Banknote, Circle, QrCode, ArrowRightLeft } from 'lucide-react';
+import { 
+  Banknote, 
+  Circle, 
+  QrCode, 
+  ArrowRightLeft, 
+  Table, 
+  Clock, 
+  CaseSensitive 
+} from 'lucide-react';
+import { ICON_TYPE } from './_config';
 
-export const ICON_TYPE = {
-  LOCATION_OUTLINE: "location_outline",
-  OPEN_LINK_OUTLINE: "open_link_outline",
-  CLOCK: "clock",
-  CLOCK_OUTLINE: "clock_outline",
-  HOME_OUTLINE: "home_outline",
-  CHART_OUTLINE: "chart_outline",
-  CIRCLE: "circle",
-  BANK_NOTE: "bank_note",
-  QR_CODE: "qr_code",
-  ARROW_RIGHT_LEFT: "arrow_right_left",
-}
 type SvgIconType = {
   type?: string;
   size?: number;
@@ -81,11 +78,7 @@ const SvgIcon = (props: SvgIconType) => {
     },
     {
       name: ICON_TYPE.CLOCK_OUTLINE,
-      path: <path 
-        strokeLinecap="round" 
-        strokeLinejoin="round" 
-        d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" 
-      />,
+      path: <Clock />,
     },
     {
       name: ICON_TYPE.HOME_OUTLINE,
@@ -128,6 +121,14 @@ const SvgIcon = (props: SvgIconType) => {
       name: ICON_TYPE.ARROW_RIGHT_LEFT,
       path: <ArrowRightLeft />,
     },
+    {
+      name: ICON_TYPE.TABLE,
+      path: <Table />,
+    },
+    {
+      name: ICON_TYPE.TEXT,
+      path: <CaseSensitive />
+    }
 
   ]
 

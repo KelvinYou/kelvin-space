@@ -1,5 +1,5 @@
 "use client"
-import { ICON_TYPE } from "@/assets/SvgIcon";
+import { ICON_TYPE } from "@/assets/SvgIcon/_config";
 import { CUSTOM_HOOKS } from "@/hooks";
 
 // import { HOME_PATH, PROJECTS_PATH, RESUME_LINK, EXPERIENCES_PATH } from "./routes";
@@ -43,12 +43,15 @@ export const toolMenu: MainMenu[] = [
     id: "qr-code",
     title: "QR Code",
     link: "/tool/qr-code",
+    icon: ICON_TYPE.QR_CODE,
   },
 ];
 
 export const COMPONENT_PATH = "/component";
 export const COMPONENT_CHART_PATH = COMPONENT_PATH + "/chart";
+
 export const COMPONENT_PROGRESS_BAR_PATH = COMPONENT_PATH + "/progress-bar";
+export const COMPONENT_TABLE_PATH = COMPONENT_PATH + "/table";
 
 export const componentMenu: MainMenu[] = [
   {
@@ -63,6 +66,12 @@ export const componentMenu: MainMenu[] = [
     link: COMPONENT_PROGRESS_BAR_PATH,
     icon: ICON_TYPE.CIRCLE,
   },
+  {
+    id: "table",
+    title: "Table",
+    link: COMPONENT_TABLE_PATH,
+    icon: ICON_TYPE.TABLE,
+  },
 ];
 
 export const UTIL_PATH = "/util";
@@ -74,13 +83,13 @@ export const utilMenu: MainMenu[] = [
     id: "moment",
     title: "Moment",
     link: UTIL_MOMENT_PATH,
-    // icon: ICON_TYPE.CHART_OUTLINE,
+    icon: ICON_TYPE.CLOCK_OUTLINE,
   },
   {
     id: "text",
     title: "Text",
     link: UTIL_TEXT_PATH,
-    // icon: ICON_TYPE.CHART_OUTLINE,
+    icon: ICON_TYPE.TEXT,
   },
 ];
 
@@ -129,6 +138,24 @@ export const externalMenu = [
     externalLink: "https://www.hyperui.dev/",
     // icon: ICON_TYPE.QR_CODE,
   },
+  {
+    id: "nextjs-docs",
+    title: "NextJS Docs",
+    link: "/external/nextjs-docs",
+    externalLink: "https://nextjs.org/docs",
+  },
+  {
+    id: "reactjs-hook",
+    title: "ReactJS Hook",
+    link: "/external/reactjs-hook",
+    externalLink: "https://legacy.reactjs.org/docs/hooks-reference.html",
+  },
+  {
+    id: "lucide-icons",
+    title: "Lucide Icons",
+    link: "/external/lucide-icons",
+    externalLink: "https://lucide.dev/icons/",
+  },
 ]
 
 export const otherMenu: MainMenu[] = [
@@ -170,6 +197,7 @@ export const navLinks = [
   {
     id: "external",
     name: "Externals",
+    isSearch: true,
     menu: externalMenu,
   },
   {
