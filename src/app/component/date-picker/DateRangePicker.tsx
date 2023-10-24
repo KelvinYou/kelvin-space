@@ -16,6 +16,7 @@ import {
 import { Switch } from '@/components/ui/switch'
 import { ChevronUpIcon, ChevronDownIcon, CheckIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { format } from 'date-fns'
 
 export interface DateRangePickerProps {
   /** Click handler for applying the updates from DateRangePicker. */
@@ -36,12 +37,13 @@ export interface DateRangePickerProps {
   showCompare?: boolean
 }
 
-const formatDate = (date: Date, locale: string = 'en-us'): string => {
-  return date.toLocaleDateString(locale, {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric'
-  })
+const formatDate = (date: Date, locale: string = 'en-uk'): string => {
+  // return date.toLocaleDateString(locale, {
+  //   day: 'numeric',
+  //   month: 'short',
+  //   year: 'numeric'
+  // })
+  return format(date, "dd MMM yyyy");
 }
 
 interface DateRange {

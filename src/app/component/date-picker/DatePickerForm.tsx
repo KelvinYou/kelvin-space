@@ -67,7 +67,7 @@ export function DatePickerForm() {
                       )}
                     >
                       {field.value ? (
-                        format(field.value, "PPP")
+                        format(field.value, "dd MMM yyyy")
                       ) : (
                         <span>Pick a date</span>
                       )}
