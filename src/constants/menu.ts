@@ -52,6 +52,7 @@ export const COMPONENT_CHART_PATH = COMPONENT_PATH + "/chart";
 
 export const COMPONENT_PROGRESS_BAR_PATH = COMPONENT_PATH + "/progress-bar";
 export const COMPONENT_TABLE_PATH = COMPONENT_PATH + "/table";
+export const COMPONENT_DATE_PICKER_PATH = COMPONENT_PATH + "/date-picker";
 
 export const componentMenu: MainMenu[] = [
   {
@@ -71,6 +72,12 @@ export const componentMenu: MainMenu[] = [
     title: "Table",
     link: COMPONENT_TABLE_PATH,
     icon: ICON_TYPE.TABLE,
+  },
+  {
+    id: "date-picker",
+    title: "Date Picker",
+    link: COMPONENT_DATE_PICKER_PATH,
+    // icon: ICON_TYPE.TEXT,
   },
 ];
 
