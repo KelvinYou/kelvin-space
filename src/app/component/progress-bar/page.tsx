@@ -28,10 +28,14 @@ const Page = () => {
             <CardDescription></CardDescription>
           </CardHeader>
           <CardContent>
-            <div className='w-24 h-24'>
-              <ProgressBar percent={50} size={24}/>
-
+            Random size of circular progress bar
+            <div  className='flex flex-wrap'>
+              <ProgressBar percent={67} size={24}/>
+              <ProgressBar percent={23.5} size={48}/>
+              <ProgressBar percent={81} size={12}/>
+              <ProgressBar percent={87} size={34}/>
             </div>
+
           </CardContent>
           <CardFooter>
             {/* <p>Reference: 

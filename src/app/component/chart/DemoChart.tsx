@@ -1,6 +1,5 @@
 "use client"
 import LineChart from '@/components/Chart/LineChart';
-import ProgressBar from '@/components/ProgressBar';
 import moment from 'moment';
 import React from 'react'
 
