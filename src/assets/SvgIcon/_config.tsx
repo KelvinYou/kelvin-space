@@ -11,4 +11,5 @@ export const ICON_TYPE = {
   ARROW_RIGHT_LEFT: "arrow_right_left",
   TABLE: "table",
   TEXT: "text",
+  FILE_LOCK: "file_lock",
 }

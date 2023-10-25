@@ -9,7 +9,8 @@ import {
   ArrowRightLeft, 
   Table, 
   Clock, 
-  CaseSensitive 
+  CaseSensitive, 
+  FileLock2
 } from 'lucide-react';
 import { ICON_TYPE } from './_config';
 
@@ -128,6 +129,10 @@ const SvgIcon = (props: SvgIconType) => {
     {
       name: ICON_TYPE.TEXT,
       path: <CaseSensitive />
+    },
+    {
+      name: ICON_TYPE.FILE_LOCK,
+      path: <FileLock2 />
     }
 
   ]
