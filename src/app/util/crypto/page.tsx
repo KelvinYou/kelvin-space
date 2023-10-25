@@ -28,7 +28,7 @@ const CryptoPage = () => {
       <Card className='mt-4'>
         <CardHeader>
           <CardTitle>Crypto Demo</CardTitle>
-          <CardDescription>I'm using AES as an example of encryption and describing</CardDescription>
+          <CardDescription>I{'\''}m using AES as an example of encryption and describing</CardDescription>
         </CardHeader>
         <CardContent>
           <CryptoDemo />

@@ -7,42 +7,19 @@ import {
   TableBody,
   TableCell,
 } from '@/components/ui/table';
-
-const escapeRegExp = (text: string) => {
-  return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-};
-
-const highlightText = (text: string, highlightedText: string[] | undefined) => {
-  if (!highlightedText || highlightedText.length === 0) {
-    return <span>{text}</span>;
-  }
-
-  const escapedHighlightedText = highlightedText.map(escapeRegExp);
-  const parts = text.split(new RegExp(`(${escapedHighlightedText.join('|')})`, 'gi'));
-
-  return parts.map((part, index) => {
-    return highlightedText.includes(part) ? (
-      <span key={index} className="text-blue-600 font-bold">
-        {part}
-      </span>
-    ) : (
-      <span key={index}>{part}</span>
-    )
-  });
-};
-
+import HighlightText from '@/components/HighlightedText';
 
 const Ciphers = () => {
   const initCiphers = [
     {
       name: 'AES',
       description: 'The Advanced Encryption Standard (AES) is a U.S. Federal Information Processing Standard (FIPS). It was selected after a 5-year process where 15 competing designs were evaluated.',
-      highlightedText: ['Advanced Encryption Standard (AES)']
+      highlightedTextArray: ['Advanced Encryption Standard (AES)']
     },
     {
       name: 'DES',
       description: 'Data Encryption Standard (DES) is a previously dominant algorithm for encryption, and was published as an official Federal Information Processing Standard (FIPS). DES is now considered to be insecure due to the small key size.',
-      highlightedText: ['Data Encryption Standard (DES)']
+      highlightedTextArray: ['Data Encryption Standard (DES)']
     },
     {
       name: 'Triple DES',
@@ -76,7 +53,11 @@ const Ciphers = () => {
             <TableRow key={index + cipher.name}>
               <TableCell>{cipher.name}</TableCell>
               <TableCell>
-                {highlightText(cipher.description, cipher.highlightedText)}
+                <HighlightText 
+                  text={cipher.description}
+                  highlightedText={cipher.highlightedTextArray} 
+                />
+
               </TableCell>
             </TableRow>
           ))}
