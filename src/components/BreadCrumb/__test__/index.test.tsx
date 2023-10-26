@@ -3,7 +3,7 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom';
 
-import BreadCrumb, { BreadcrumbProps } from '.';
+import BreadCrumb, { BreadcrumbProps } from '..';
 
 describe('BreadCrumb Component', () => {
   test('renders without links', () => {

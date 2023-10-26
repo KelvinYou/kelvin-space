@@ -18,7 +18,6 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ percent = 0, size = 24, class
 
   useEffect(() => {
     // Update text size when the size prop changes
-    console.log("size: ", size)
     setPercentTextSize(size);
   }, [size]);
 

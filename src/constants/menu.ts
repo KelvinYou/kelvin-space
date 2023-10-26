@@ -38,12 +38,19 @@ export const toolMenu: MainMenu[] = [
     id: "watermark",
     title: "Watermark",
     link: "/tool/watermark",
+    icon: ICON_TYPE.FILE_LOCK,
   },
   {
     id: "qr-code",
     title: "QR Code",
     link: "/tool/qr-code",
     icon: ICON_TYPE.QR_CODE,
+  },
+  {
+    id: "chat",
+    title: "Chat",
+    link: "/tool/chat",
+    // icon: ICON_TYPE.QR_CODE,
   },
 ];
 

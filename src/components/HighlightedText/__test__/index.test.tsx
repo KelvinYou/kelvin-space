@@ -1,7 +1,7 @@
 // __tests__/HighlightText.test.tsx
 import React from 'react';
 import { render } from '@testing-library/react';
-import HighlightText from '.';
+import HighlightText from '..';
 
 describe('HighlightText Component', () => {
   test('renders without className', () => {
