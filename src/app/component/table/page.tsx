@@ -8,7 +8,7 @@ import { TableDemo } from './TableDemo'
 import { DataTableDemo } from './DataTableDemo'
 
 export const metadata: Metadata = {
-  title: 'Progress Bar | Kelvin You\'s Space',
+  title: 'Table | Kelvin You\'s Space',
   description: 'A space that to record my love',
 }
 

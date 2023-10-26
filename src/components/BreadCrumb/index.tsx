@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import React, { FC, ReactNode } from 'react';
 
-interface BreadcrumbProps {
+export interface BreadcrumbProps {
   items: { label: string; link?: string; }[];
 }
 

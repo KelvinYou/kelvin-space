@@ -171,6 +171,12 @@ export const externalMenu = [
     link: "/external/lucide-icons",
     externalLink: "https://lucide.dev/icons/",
   },
+  {
+    id: "test-nextjs",
+    title: "Test NextJS",
+    link: "/external/test-nextjs",
+    externalLink: "https://nextjs.org/docs/pages/building-your-application/optimizing/testing#setting-up-jest-with-the-rust-compiler",
+  },
 ]
 
 export const otherMenu: MainMenu[] = [

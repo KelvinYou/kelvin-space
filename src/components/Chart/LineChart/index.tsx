@@ -1,4 +1,5 @@
-"use client";
+import React, { FC, useEffect, useRef } from 'react';
+import { useTheme } from 'next-themes';
 import * as echarts from 'echarts/core';
 import {
   TitleComponent,
@@ -6,13 +7,11 @@ import {
   TooltipComponent,
   GridComponent,
   GridComponentOption,
-  LegendComponent
+  LegendComponent,
 } from 'echarts/components';
-import { LineChart as ELineChart, LineSeriesOption} from 'echarts/charts';
+import { LineChart as ELineChart, LineSeriesOption } from 'echarts/charts';
 import { UniversalTransition } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
-import { FC, useEffect } from 'react';
-import { useTheme } from 'next-themes';
 
 echarts.use([
   TitleComponent,
@@ -22,81 +21,75 @@ echarts.use([
   LegendComponent,
   ELineChart,
   CanvasRenderer,
-  UniversalTransition
+  UniversalTransition,
 ]);
 
 type EChartsOption = echarts.ComposeOption<GridComponentOption | LineSeriesOption>;
 
-type LineChartType = {
-  id: string,
-  legendData: string[],
-  xAxisData: string[],
-  seriesData: any[],
+interface LineChartProps {
+  legendData: string[];
+  xAxisData: string[];
+  seriesData: any[];
 }
 
-const LineChart: FC<LineChartType> = (props) => {
-  const { 
-    id = "echart", 
-    legendData = [],
-    xAxisData = [],
-    seriesData = [],
-  } = props;
+const LineChart: FC<LineChartProps> = ({ legendData = [], xAxisData = [], seriesData = [] }) => {
   const { theme } = useTheme();
+  const chartRef = useRef<HTMLDivElement>(null);
 
   const option: EChartsOption = {
     tooltip: {
-      trigger: 'axis'
+      trigger: 'axis',
     },
     legend: {
-      data: legendData
+      data: legendData,
     },
     grid: {
       left: '3%',
       right: '4%',
       bottom: '3%',
-      containLabel: true
+      containLabel: true,
     },
     toolbox: {
       feature: {
-        saveAsImage: {} // download
-      }
+        saveAsImage: {}, // download
+      },
     },
     xAxis: {
       type: 'category',
       boundaryGap: false,
-      data: xAxisData
+      data: xAxisData,
     },
     yAxis: {
-      type: 'value'
+      type: 'value',
     },
-    series: seriesData
+    series: seriesData,
   };
 
   useEffect(() => {
-    const chartDom = document.getElementById(id);
+    const currentChartRef = chartRef.current;
 
-    const myChart = echarts.init(chartDom, theme);
+    if (currentChartRef) {
+      const myChart = echarts.init(currentChartRef, theme);
 
-    // Set the chart options
-    myChart.setOption(option);
+      // Set the chart options
+      myChart.setOption(option);
 
-    // Make the chart responsive by listening to window resize events
-    window.addEventListener('resize', () => {
-      myChart.resize();
-    });
-
-    // Cleanup the chart when the component unmounts
-    return () => {
-      window.removeEventListener('resize', () => {
+      // Make the chart responsive by listening to window resize events
+      const handleResize = () => {
         myChart.resize();
-      });
-      myChart.dispose();
-    };
+      };
+
+      window.addEventListener('resize', handleResize);
+
+      // Cleanup the chart when the component unmounts
+      return () => {
+        window.removeEventListener('resize', handleResize);
+        myChart.dispose();
+      };
+    }
   }, [theme, option]);
 
-  return (
-    <div id={id} style={{ height: '400px', width: '100%' }}></div>
-  );
-}
+  return <div ref={chartRef} style={{ height: '400px', width: '100%' }}></div>;
+};
 
 export default LineChart;
