@@ -4,6 +4,10 @@ import QRCode from 'qrcode.react';
 import { Input } from '@/components/ui/input';
 import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 import { Button } from '@/components/ui/button';
+import { FileFormat, downloadFile } from '@/utils/fileUtils';
+
+import "./index.scss";
+
 
 const QRCodeGenerator = () => {
   const [text, setText] = useState('');
@@ -45,18 +49,26 @@ const QRCodeGenerator = () => {
         placeholder="Enter text or URL"
       />
 
-      <div ref={qrCodeRef} className='flex flex-col items-center justify-center'>
+      <div className='flex flex-col items-center justify-center mt-4'>
         <h3>{text}</h3>
-        <div >
+        <div ref={qrCodeRef} className='p-4 bg-white'>
           <QRCode value={text} />
         </div>
       </div>
 
       <div className='flex justify-center mt-4'>
-        <Button onClick={downloadSVG} className='mr-2'>
+        <Button 
+          onClick={() => downloadFile(qrCodeRef, FileFormat.SVG)} 
+          className='mr-2 download-qr-btn' 
+          variant={'outline'}
+        >
           Download as SVG
         </Button>
-        <Button onClick={downloadPNG}>
+        <Button 
+          onClick={() => downloadFile(qrCodeRef, FileFormat.PNG)} 
+          className='download-qr-btn'
+          variant={'outline'}
+        >
           Download as PNG
         </Button>
       </div>

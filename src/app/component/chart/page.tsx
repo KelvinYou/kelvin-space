@@ -7,6 +7,7 @@ import DemoChart from './DemoChart'
 import type { Metadata } from 'next'
 import BreadCrumb from '@/components/BreadCrumb'
 import { COMPONENT_CHART_PATH, COMPONENT_PATH, HOME_PATH } from '@/constants/menu'
+import BarRaceChart from '@/components/Chart/BarRaceChart'
 
 export const metadata: Metadata = {
   title: 'Chart | Kelvin You\'s Space',
@@ -20,9 +21,15 @@ const breadcrumbItems = [
 ];
 
 const Page = () => {
+  const initialData: number[] = [];
+  for (let i = 0; i < 5; ++i) {
+    initialData.push(Math.round(Math.random() * 200));
+  }
+
   return (
     <div className='p-4'>
       <BreadCrumb items={breadcrumbItems} />
+
       <div className='mt-4'>
         <Card>
           <CardHeader>
@@ -38,6 +45,20 @@ const Page = () => {
                 https://echarts.apache.org/examples/en/index.html
               </a>
             </p> */}
+          </CardFooter>
+        </Card>
+      </div>
+
+      <div className='mt-4'>
+        <Card>
+          <CardHeader>
+            <CardTitle>Bar Race Chart</CardTitle>
+            <CardDescription>Data will be generated randomly, refresh the page to see the changes</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <BarRaceChart initialData={initialData} />
+          </CardContent>
+          <CardFooter>
           </CardFooter>
         </Card>
       </div>

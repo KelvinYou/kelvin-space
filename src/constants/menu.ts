@@ -72,7 +72,7 @@ export const componentMenu: MainMenu[] = [
     id: "map",
     title: "Map",
     link: COMPONENT_MAP_PATH,
-    // icon: ICON_TYPE.CHART_OUTLINE,
+    icon: ICON_TYPE.MAP_PINNED,
   },
   {
     id: "progress-bar",
@@ -201,6 +201,18 @@ export const otherMenu: MainMenu[] = [
   },
 ];
 
+export const SAMPLE_DESIGN_PATH = "/sample-design";
+export const SAMPLE_DESIGN_GAME_ANALYSIS_PATH = SAMPLE_DESIGN_PATH + "/game-analysis";
+
+
+export const sampleDesignMenu: MainMenu[] = [
+  {
+    id: "game-analysis",
+    title: "Game Analysis",
+    link: SAMPLE_DESIGN_GAME_ANALYSIS_PATH,
+  }
+]
+
 export const navLinks = [
   {
     id: "main",
@@ -227,6 +239,11 @@ export const navLinks = [
     id: "util",
     name: "Utils",
     menu: utilMenu,
+  },  
+  {
+    id: "sample-design",
+    name: "Sample Design",
+    menu: sampleDesignMenu,
   },  
   {
     id: "external",

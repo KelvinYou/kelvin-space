@@ -10,7 +10,8 @@ import {
   Table, 
   Clock, 
   CaseSensitive, 
-  FileLock2
+  FileLock2,
+  MapPin
 } from 'lucide-react';
 import { ICON_TYPE } from './_config';
 
@@ -133,6 +134,10 @@ const SvgIcon = (props: SvgIconType) => {
     {
       name: ICON_TYPE.FILE_LOCK,
       path: <FileLock2 />
+    },
+    {
+      name: ICON_TYPE.MAP_PINNED,
+      path: <MapPin />
     }
 
   ]

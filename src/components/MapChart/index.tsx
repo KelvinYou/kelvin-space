@@ -1,12 +1,25 @@
 "use client"
 
-// MapChart.tsx
 import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 
 import worldGeoJSON from './_config/world.json';
+import malaysiaGeoJSON from './_config/malaysia.json';
+import { EChartsOption } from 'echarts';
 
-const MapChart: React.FC = () => {
+export const MAP_CONFIG = {
+  WORLD: worldGeoJSON,
+  MALAYSIA: malaysiaGeoJSON,
+}
+
+type MapChartType = {
+  mapGeo: string,
+  options?: EChartsOption,
+}
+
+
+const MapChart: React.FC<MapChartType> = ({ mapGeo, options }) => {
+
   const chartRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -16,10 +29,10 @@ const MapChart: React.FC = () => {
     const chart = echarts.init(chartRef.current);
 
     // Register World map
-    echarts.registerMap('world', worldGeoJSON as any);
+    echarts.registerMap('world', mapGeo);
 
     // ECharts configuration
-    const options: echarts.EChartsOption = {
+    const options: EChartsOption = {
       title: {
         text: 'World Map Chart',
         left: 'center',

@@ -12,4 +12,5 @@ export const ICON_TYPE = {
   TABLE: "table",
   TEXT: "text",
   FILE_LOCK: "file_lock",
+  MAP_PINNED: "map_pinned",
 }
