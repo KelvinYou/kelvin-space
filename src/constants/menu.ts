@@ -56,7 +56,7 @@ export const toolMenu: MainMenu[] = [
 
 export const COMPONENT_PATH = "/component";
 export const COMPONENT_CHART_PATH = COMPONENT_PATH + "/chart";
-
+export const COMPONENT_MAP_PATH = COMPONENT_PATH + "/map";
 export const COMPONENT_PROGRESS_BAR_PATH = COMPONENT_PATH + "/progress-bar";
 export const COMPONENT_TABLE_PATH = COMPONENT_PATH + "/table";
 export const COMPONENT_DATE_PICKER_PATH = COMPONENT_PATH + "/date-picker";
@@ -67,6 +67,12 @@ export const componentMenu: MainMenu[] = [
     title: "Chart",
     link: COMPONENT_CHART_PATH,
     icon: ICON_TYPE.CHART_OUTLINE,
+  },
+  {
+    id: "map",
+    title: "Map",
+    link: COMPONENT_MAP_PATH,
+    // icon: ICON_TYPE.CHART_OUTLINE,
   },
   {
     id: "progress-bar",
@@ -116,7 +122,7 @@ export const utilMenu: MainMenu[] = [
 ];
 
 export const HOOK_PATH = "/hook";
-export const HOOK_ITEM_PATH = HOOK_PATH + "?id=";
+export const HOOK_ITEM_PATH = HOOK_PATH + "/";
 
 export const hookMenu = Object.values(CUSTOM_HOOKS).map(({ id }: any) => ({ 
   id,
