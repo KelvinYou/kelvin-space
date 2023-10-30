@@ -1,37 +1,45 @@
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
-import { ArrowDown, ArrowUp } from 'lucide-react'
+
 import React from 'react'
+import KeyMetricSection from './KeyMetricSection'
+import MentionsSentiment from './MentionsSentiment'
+import CompareCompetitors from './CompareCompetitors'
 
 const dummyData = [
   {
     label: "Mentions",
     value: 1260,
     compareValue: 2031,
+    description: "Summary of the number of Reviews (Posts & Comments). This includes all reviews of the game in the Game Store, as well as reviews captured on Social Media through monitor keywords and official accounts."
   },
   {
     label: "Account Posts",
     value: 12,
     compareValue: 4,
+    description: "Summary of the number of Account posts on social media."
   },
   {
     label: "Engagement",
     value: 25710,
-    compareValue: 41780,
+    compareValue: 25710,
+    description: "Summary of Likes, Comments and Shares of all Reviews (Posts & Comments)."
   },
   {
     label: "Sentiment",
     value: 2.96,
     compareValue: 4,
+    description: "Sentiment score is used to score the sentiment tendency of each comment through NLP algorithm and sentiment analysis, on a scale of 1-5. Sentiment score greater than 3.5 is positive, score lower than 2.5 is negative, and score between 2.5-3.5 is neutral."
   },
   {
     label: "Non Negative %",
     value: 0.92,
     compareValue: 0.34,
+    description: "The proportion of Positive and Neutral sentiment Reviews in total Reviews (Posts & Comments)."
   },
   {
     label: "Lifetime User Score",
     value: 4.3,
     compareValue: 4,
+    description: "Within the selected date range, DataBrain take the Region/Country's latest User Score, and then average the scores of these different Regions/Countries. (Excluding countries that lack Lifetime User Score on this day; Filters other than country and date do not take effect). \nThe countries displayed in Google Play reviews are obtained by crawling through the Google Play scores for each language and then mapping the language to the country."
   },
 ]
 
@@ -41,53 +49,22 @@ const GameAnalysisPage = () => {
       <div className='bg-white dark:bg-gray-900 text-lg p-4 font-bold shadow-lg'>
         Performance
       </div>
-      <div className='flex py-5 font-bold text-base'>
+      <div className='flex pt-5 pb-3 font-bold text-base'>
         <div className='pl-4'>
           Key Metrics
         </div>
-        
-
       </div>
 
+      <KeyMetricSection dummyData={dummyData} />
 
-      <section className="px-4 flex flex-wrap gap-5">
-        {dummyData.map((dummy, index) => {
-          const percentage = ((dummy.value - dummy.compareValue) / dummy.value) * 100;
-
-          return (
-            <Card
-              key={index + dummy.label}
-              className='hover:shadow-lg min-w-[180px] flex-grow sm:w-auto hover:cursor-pointer'
-            >
-              <CardContent className='p-5'>
-                <div className='text-sm font-bold'>
-                  {dummy.label}
-                </div>
-                <div className='text-2xl my-[6px]'>
-                  {dummy.value}
-                </div>
-                <div className='flex gap-2'>
-                  <span className='text-xs text-gray-500 font-bold'>Dod</span> 
-                  <span className={`text-xs ${
-                    percentage > 0 ? 'text-green-500' : 'text-red-500'
-                  } font-bold`}>
-                    {percentage.toFixed(2)} %
-                  </span> 
-                  {percentage > 0 ?
-                  <ArrowUp size={14} className='text-green-500'/> 
-                  : 
-                  <ArrowDown size={14}  className='text-red-500'/>
-                  }
-                  
-                  
-                </div>
-              </CardContent>
-            </Card>
-          );
-        })}
+      <section className="mt-5 px-4 grid grid-cols-1 gap-4 xl:grid-cols-5 lg:gap-4">
+        <div className="xl:col-span-3">
+          <MentionsSentiment />
+        </div>
+        <div className="xl:col-span-2">
+          <CompareCompetitors />
+        </div>
       </section>
-
-
     </div>
   )
 }

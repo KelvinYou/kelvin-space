@@ -1,4 +1,3 @@
-// fileUtils.tsx
 import { toPng, toSvg } from 'html-to-image';
 
 // Define an enum for file formats

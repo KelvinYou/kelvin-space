@@ -1,6 +1,7 @@
 import React from 'react'
 import { ModeToggle } from '../ModeToggle';
 import { common } from '@/constants';
+import ProfileSelector from './ProfileSelector';
 
 type Props = {
   sidebarOpen: boolean
@@ -29,8 +30,9 @@ const Navbar = (props: Props) => {
             </div>
           </div>
           <div className="flex items-center">
-              <div className="flex items-center ml-3">
+              <div className="flex items-center ml-3 gap-2">
                 {/* <ThemeChanger />Profile */}
+                <ProfileSelector />
                 <ModeToggle />
                 &nbsp;
               </div>
