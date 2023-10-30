@@ -13,7 +13,7 @@ export const MAP_CONFIG = {
 }
 
 type MapChartType = {
-  mapGeo: string,
+  mapGeo: any,
   options?: EChartsOption,
 }
 
