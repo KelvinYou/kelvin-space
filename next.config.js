@@ -1,15 +1,15 @@
-/** @type {import('next').NextConfig} */
-const nextTranslate = require("next-translate");
+// /** @type {import('next').NextConfig} */
+// const nextTranslate = require('next-translate-plugin')
+// const { i18n } = require('./i18n.json');
 
-const nextConfig = {
-  i18n: {
-    locales: ['en', 'zh', 'ms'],
-    defaultLocale: 'en',
-    pages: {
-      "*": ["common"],
-    },
-  },
-  reactStrictMode: true,
-}
+// const nextConfig = nextTranslate({
+//   i18n,
+//   reactStrictMode: true,
+// });
 
-module.exports = nextTranslate(nextConfig);
+// module.exports = nextConfig;
+
+
+const nextTranslate = require('next-translate-plugin')
+
+module.exports = nextTranslate()

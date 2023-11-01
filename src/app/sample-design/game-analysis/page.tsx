@@ -1,8 +1,9 @@
 
-import React from 'react'
+import React, { FC } from 'react'
 import KeyMetricSection from './KeyMetricSection'
 import MentionsSentiment from './MentionsSentiment'
 import CompareCompetitors from './CompareCompetitors'
+import useTranslation from 'next-translate/useTranslation'
 
 const dummyData = [
   {
@@ -43,11 +44,13 @@ const dummyData = [
   },
 ]
 
-const GameAnalysisPage = () => {
+const GameAnalysisPage: FC = () => {
+  const { t, lang } = useTranslation();
+
   return (
     <div>
       <div className='bg-white dark:bg-gray-900 text-lg p-4 font-bold shadow-lg'>
-        Performance
+        {t("Performance")}
       </div>
       <div className='flex pt-5 pb-3 font-bold text-base'>
         <div className='pl-4'>

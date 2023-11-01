@@ -17,7 +17,9 @@ const KeyMetricCard: React.FC<KeyMetricCardProps> = ({ cardContext }) => {
   const percentage = ((cardContext.value - cardContext.compareValue) / cardContext.value) * 100;
 
   return (
-    <Card className='hover:shadow-lg min-w-[180px] flex-grow sm:w-auto hover:cursor-pointer'>
+    <Card className='hover:shadow-lg min-w-[160px] sm:w-auto hover:cursor-pointer 
+    bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white via-gray-100 to-gray-300
+    dark:from-gray-700 dark:via-gray-900 dark:to-black'>
       <CardContent className='p-5'>
         <Tooltip>
           <TooltipTrigger asChild>
@@ -56,7 +58,7 @@ const KeyMetricSection: React.FC<any> = (props) => {
   const { dummyData } = props;
 
   return (
-    <section className="px-4 flex flex-wrap gap-5">
+    <section className="px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
       {dummyData.map((dummy: any, index: number) => {
         return (
           <KeyMetricCard key={index} cardContext={dummy}/>

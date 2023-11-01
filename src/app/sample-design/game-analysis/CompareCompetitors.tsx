@@ -15,15 +15,172 @@ const gameCompetitors = [
     tags: [
       {
         label: "Sun",
+        color: "green"
       },
       {
         label: "Late",
+        color: "red"
       },
       {
         label: "Freya",
+        color: "gray"
       }
     ]
-  }
+  },
+  {
+    id: 1,
+    label: "Free Fire",
+    mentionsValue: 6950,
+    previousMentionsValue: 3456,
+    sentimentValue: 3.26,
+    previousSentimentValue: 2.13,
+    tags: [
+      {
+        label: "Sun",
+        color: "green"
+      },
+      {
+        label: "Late",
+        color: "red"
+      },
+      {
+        label: "Freya",
+        color: "gray"
+      }
+    ]
+  },
+  {
+    id: 1,
+    label: "Free Fire",
+    mentionsValue: 6950,
+    previousMentionsValue: 3456,
+    sentimentValue: 3.26,
+    previousSentimentValue: 2.13,
+    tags: [
+      {
+        label: "Sun",
+        color: "green"
+      },
+      {
+        label: "Late",
+        color: "red"
+      },
+      {
+        label: "Freya",
+        color: "gray"
+      }
+    ]
+  },
+  {
+    id: 1,
+    label: "Free Fire",
+    mentionsValue: 6950,
+    previousMentionsValue: 3456,
+    sentimentValue: 3.26,
+    previousSentimentValue: 2.13,
+    tags: [
+      {
+        label: "Sun",
+        color: "green"
+      },
+      {
+        label: "Late",
+        color: "red"
+      },
+      {
+        label: "Freya",
+        color: "gray"
+      }
+    ]
+  },
+  {
+    id: 1,
+    label: "Free Fire",
+    mentionsValue: 6950,
+    previousMentionsValue: 3456,
+    sentimentValue: 3.26,
+    previousSentimentValue: 2.13,
+    tags: [
+      {
+        label: "Sun",
+        color: "green"
+      },
+      {
+        label: "Late",
+        color: "red"
+      },
+      {
+        label: "Freya",
+        color: "gray"
+      }
+    ]
+  },
+  {
+    id: 1,
+    label: "Free Fire",
+    mentionsValue: 6950,
+    previousMentionsValue: 3456,
+    sentimentValue: 3.26,
+    previousSentimentValue: 2.13,
+    tags: [
+      {
+        label: "Sun",
+        color: "green"
+      },
+      {
+        label: "Late",
+        color: "red"
+      },
+      {
+        label: "Freya",
+        color: "gray"
+      }
+    ]
+  },
+  {
+    id: 1,
+    label: "Free Fire",
+    mentionsValue: 6950,
+    previousMentionsValue: 3456,
+    sentimentValue: 3.26,
+    previousSentimentValue: 2.13,
+    tags: [
+      {
+        label: "Sun",
+        color: "green"
+      },
+      {
+        label: "Late",
+        color: "red"
+      },
+      {
+        label: "Freya",
+        color: "gray"
+      }
+    ]
+  },
+  {
+    id: 1,
+    label: "Free Fire",
+    mentionsValue: 6950,
+    previousMentionsValue: 3456,
+    sentimentValue: 3.26,
+    previousSentimentValue: 2.13,
+    tags: [
+      {
+        label: "Sun",
+        color: "green"
+      },
+      {
+        label: "Late",
+        color: "red"
+      },
+      {
+        label: "Freya",
+        color: "gray"
+      }
+    ]
+  },
 ]
 
 const CompareCompetitors: FC = () => {
@@ -34,28 +191,33 @@ const CompareCompetitors: FC = () => {
           Compare Competitors 
           <ChevronRight />
         </div>
-        <Table className='mt-4'>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Game (Sort by DAU)</TableHead>
-              <TableHead className='text-right'>Mentions</TableHead>
-              <TableHead className='text-right'>Sentiment</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {gameCompetitors.map((competitor, index) => {
-              const mentionsPercentage = ((competitor.mentionsValue - competitor.previousMentionsValue) / competitor.previousMentionsValue) * 100;
-              const sentimentPercentage = ((competitor.sentimentValue - competitor.previousSentimentValue) / competitor.previousSentimentValue) * 100;
-              
-              return (
-                <>
+
+        <div className='mt-4 overflow-auto max-h-[400px]'>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Game (Sort by DAU)</TableHead>
+                <TableHead className='text-right'>Mentions</TableHead>
+                <TableHead className='text-right'>Sentiment</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {gameCompetitors.map((competitor, index) => {
+                const mentionsPercentage = ((competitor.mentionsValue - competitor.previousMentionsValue) / competitor.previousMentionsValue) * 100;
+                const sentimentPercentage = ((competitor.sentimentValue - competitor.previousSentimentValue) / competitor.previousSentimentValue) * 100;
+
+                return (
                   <TableRow key={index}>
                     <TableCell>
                       {competitor.label}
-                      <div className='flex gap-1'>
+                      <div className='flex gap-1 mt-2'>
                         {competitor.tags.map((tag, index) => {
                           return (
-                            <div key={index} className='border-solid border-2 border-gray-500 rounded-md'>
+                            <div key={index} className={`border-solid border-2 ${
+                              tag.color === "green" ? "border-green-400 text-green-400" 
+                              : tag.color === "red" ? "border-red-400 text-red-400"
+                              : "border-gray-400 text-gray-400"
+                              } rounded-md text-xs px-1`}>
                               {tag.label}
                             </div>
                           )
@@ -64,7 +226,7 @@ const CompareCompetitors: FC = () => {
                       
                     </TableCell>
                     <TableCell>
-                      <div className='text-right text-sm text-black font-semibold'>
+                      <div className='text-right text-sm text-black dark:text-gray-100 font-semibold'>
                         {formatNumberAsAbbreviation(
                           competitor.mentionsValue
                         )}
@@ -74,7 +236,7 @@ const CompareCompetitors: FC = () => {
                       </div>
                     </TableCell>
                     <TableCell>
-                      <div className='text-right text-sm text-black font-semibold'>
+                      <div className='text-right text-sm text-black dark:text-gray-100 font-semibold'>
                         {formatNumberAsAbbreviation(
                           competitor.sentimentValue
                         )}
@@ -86,17 +248,16 @@ const CompareCompetitors: FC = () => {
 
 
                   </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </div>
 
-
-                </>
-              )
-            })}
-
-          </TableBody>
-        </Table>
       </CardContent>
     </Card>
-  )
-}
+  );
+};
+
 
 export default CompareCompetitors

@@ -31,12 +31,12 @@ const MentionsSentiment: FC = () => {
       <CardContent className='p-5'>
         <div className='text-base font-bold'>Mentions & Sentiment</div>
         
-        <div className='flex bg-gray-100 p-1 gap-1 rounded-lg mt-2'>
+        <div className='flex bg-gray-100 dark:bg-gray-700 p-1 gap-1 rounded-lg mt-2'>
           {buttonItems.map((item) => (
             <button 
               key={item.value} 
               className={`flex-grow text-xs font-bold rounded-md transition-colors  py-1 ${
-                selectedButton === item.value ? 'bg-[#326ff0] text-white' : 'hover:bg-[#d7d7db]'
+                selectedButton === item.value ? 'bg-[#326ff0] text-white' : 'hover:bg-[#e1e1e1] dark:hover:bg-[#595959]'
               }`}
               onClick={() => handleButtonClick(item.value)}>
               {item.label}

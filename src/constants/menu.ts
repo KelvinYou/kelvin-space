@@ -167,6 +167,13 @@ export const externalMenu = [
     // icon: ICON_TYPE.QR_CODE,
   },
   {
+    id: "hyper-color",
+    title: "Hyper Color",
+    link: "/external/hyper-color",
+    externalLink: "https://hypercolor.dev/",
+    // icon: ICON_TYPE.QR_CODE,
+  },
+  {
     id: "nextjs-docs",
     title: "NextJS Docs",
     link: "/external/nextjs-docs",

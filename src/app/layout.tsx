@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   description: 'A space that to record my love',
 }
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: {
   children: React.ReactNode
-}) {
+}) => {
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -39,3 +39,5 @@ export default function RootLayout({
     </html>
   )
 }
+
+export default RootLayout;
