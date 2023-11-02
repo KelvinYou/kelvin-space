@@ -2,6 +2,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import React from 'react'
 import Chatroom from './Chatroom'
 import Link from 'next/link'
+import TextToSpeech from "./TextToSpeech";
 
 const ChatPage = () => {
   return (
@@ -35,17 +36,18 @@ const ChatPage = () => {
       <div className='mt-4'>
         <Card>
           <CardHeader>
-            <CardTitle>Chatroom Demo</CardTitle>
+            <CardTitle>Text To Voice Demo</CardTitle>
             <CardDescription>Still searching the best way and improve...</CardDescription>
           </CardHeader>
           <CardContent>
-            {/* <Chatroom /> */} currently it is failed successfully XD
+
+            <TextToSpeech />
           </CardContent>
           <CardFooter>
           </CardFooter>
         </Card>
       </div>
-      
+
     </div>
   )
 }
