@@ -5,7 +5,7 @@ import { Textarea } from '@/components/ui/textarea';
 import React, { useState } from 'react';
 import { useSpeechSynthesis } from 'react-speech-kit';
 
-const TextToSpeechApp = () => {
+const TextToSpeech = () => {
   const [text, setText] = useState('Welcome to My Space! Don\'t be shy to follow my LinkedIn');
   const [selectedVoice, setSelectedVoice] = useState(null);
   const { speak, voices } = useSpeechSynthesis();
@@ -59,4 +59,4 @@ const TextToSpeechApp = () => {
   );
 };
 
-export default TextToSpeechApp;
+export default TextToSpeech;

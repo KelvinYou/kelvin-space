@@ -50,7 +50,11 @@ export const toolMenu: MainMenu[] = [
     id: "chat",
     title: "Chat",
     link: "/tool/chat",
-    // icon: ICON_TYPE.QR_CODE,
+  },
+  {
+    id: "log-checker",
+    title: "Log Checker",
+    link: "/tool/log-checker",
   },
 ];
 
