@@ -19,10 +19,11 @@ const LogCheckerPage: React.FC = () => {
       const combinedText = validTextArray.join('\n');
 
       // Count words for each user
+      // console.log('Word count by user:', countWordsByUser(combinedText));
+
       setUserWordCountMap(countWordsByUser(combinedText));
 
       // Display the result
-      console.log('Word count by user:', userWordCountMap);
 
     } catch (error) {
       console.error('Error handling files:', error);
