@@ -64,6 +64,7 @@ export const COMPONENT_MAP_PATH = COMPONENT_PATH + "/map";
 export const COMPONENT_PROGRESS_BAR_PATH = COMPONENT_PATH + "/progress-bar";
 export const COMPONENT_TABLE_PATH = COMPONENT_PATH + "/table";
 export const COMPONENT_DATE_PICKER_PATH = COMPONENT_PATH + "/date-picker";
+export const COMPONENT_PDF_PATH = COMPONENT_PATH + "/pdf";
 
 export const componentMenu: MainMenu[] = [
   {
@@ -94,6 +95,12 @@ export const componentMenu: MainMenu[] = [
     id: "date-picker",
     title: "Date Picker",
     link: COMPONENT_DATE_PICKER_PATH,
+    // icon: ICON_TYPE.TEXT,
+  },
+  {
+    id: "pdf",
+    title: "Pdf Renderer",
+    link: COMPONENT_PDF_PATH,
     // icon: ICON_TYPE.TEXT,
   },
 ];
