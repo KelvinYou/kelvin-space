@@ -1,4 +1,3 @@
-import ProgressBar from '@/components/ProgressBar'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
 import React from 'react'
 import type { Metadata } from 'next'

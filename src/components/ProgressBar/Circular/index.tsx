@@ -8,7 +8,7 @@ interface ProgressBarProps {
   className?: string;
 }
 
-const ProgressBar: React.FC<ProgressBarProps> = ({ percent = 0, size = 24, className }) => {
+const CircularProgressBar: React.FC<ProgressBarProps> = ({ percent = 0, size = 24, className }) => {
   const [percentTextSize, setPercentTextSize] = useState<number>(size);
 
   const radius = (size / 2.4).toString();
@@ -58,4 +58,4 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ percent = 0, size = 24, class
   );
 };
 
-export default ProgressBar;
+export default CircularProgressBar;

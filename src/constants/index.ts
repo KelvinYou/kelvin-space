@@ -1,6 +1,6 @@
 
 
 export const common = {
-  appName: "Kelvin's Space",
+  appName: "Kelvin You's Space",
   createdDate: "2023-10-02",
 }

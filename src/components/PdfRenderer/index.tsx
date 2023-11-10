@@ -27,6 +27,7 @@ export const {
   LinearGradient,
   RadialGradient,
   StyleSheet,
+  PDFDownloadLink,
 } = ReactPDF;
 
 export type Style = ReactPDF.Styles[string];

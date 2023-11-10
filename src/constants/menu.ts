@@ -110,6 +110,7 @@ export const UTIL_PATH = "/util";
 export const UTIL_MOMENT_PATH = UTIL_PATH + "/moment";
 export const UTIL_TEXT_PATH = UTIL_PATH + "/text";
 export const UTIL_CRYPTO_PATH = UTIL_PATH + "/crypto";
+export const UTIL_STORAGE_PATH = UTIL_PATH + "/storage";
 
 export const utilMenu: MainMenu[] = [
   {
@@ -129,6 +130,12 @@ export const utilMenu: MainMenu[] = [
     title: "Crypto",
     link: UTIL_CRYPTO_PATH,
     icon: ICON_TYPE.FILE_LOCK,
+  },
+  {
+    id: "storage",
+    title: "Storage",
+    link: UTIL_STORAGE_PATH,
+    // icon: ICON_TYPE.FILE_LOCK,
   },
 ];
 

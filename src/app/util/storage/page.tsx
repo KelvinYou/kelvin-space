@@ -1,16 +1,16 @@
-import BreadCrumb from '@/components/BreadCrumb'
+import BreadCrumb from '@/components/BreadCrumb';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
-import { HOME_PATH, COMPONENT_PATH, COMPONENT_PDF_PATH } from '@/constants/menu';
+import { HOME_PATH, UTIL_PATH, UTIL_STORAGE_PATH } from '@/constants/menu';
 import React from 'react'
-import PdfDemo from './PdfDemo';
+import CookieStorage from './CookieStorage';
 
 const breadcrumbItems = [
   { label: 'Home', link: HOME_PATH },
-  { label: 'Component', link: COMPONENT_PATH },
-  { label: 'Pdf', link: COMPONENT_PDF_PATH },
+  { label: 'Util', link: UTIL_PATH },
+  { label: 'Storage', link: UTIL_STORAGE_PATH  },
 ];
 
-const PdfPage = () => {
+const StoragePage = () => {
   return (
     <div className='p-4'>
       <BreadCrumb items={breadcrumbItems} />
@@ -18,11 +18,11 @@ const PdfPage = () => {
       <section className='mt-4'>
         <Card>
           <CardHeader>
-            <CardTitle>PDF Example</CardTitle>
-            <CardDescription></CardDescription>
+            <CardTitle>Cookie</CardTitle>
+            <CardDescription>Cookie</CardDescription>
           </CardHeader>
           <CardContent>
-            <PdfDemo />
+            <CookieStorage />
           </CardContent>
           <CardFooter>
           </CardFooter>
@@ -37,16 +37,16 @@ const PdfPage = () => {
           </CardHeader>
           <CardContent>
             <div>
-              https://github.com/przpiw/PDFResumeBuilder
+              https://nextjs.org/docs/app/api-reference/functions/cookies
 
-              Learned how to render in React
+              NextJS official website
             </div>
             
             <div>
-              https://www.youtube.com/watch?v=HhLa-D0SXlI
+              {/* https://www.youtube.com/watch?v=HhLa-D0SXlI
 
               NextJS makes a clear distinction between what code runs on the client and the server, causing a lot of problems
-              Learned how to implement dynamic SSR and how to solve routing problems
+              Learned how to implement dynamic SSR and how to solve routing problems */}
             </div>
             
           </CardContent>
@@ -58,4 +58,4 @@ const PdfPage = () => {
   )
 }
 
-export default PdfPage
+export default StoragePage
