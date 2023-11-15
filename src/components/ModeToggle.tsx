@@ -11,7 +11,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { ThemeMode } from "./theme-provider"
+
+export enum ThemeMode {
+  Light = 'light',
+  Dark = 'dark',
+  System = 'system',
+}
 
 export function ModeToggle() {
   const { setTheme } = useTheme()

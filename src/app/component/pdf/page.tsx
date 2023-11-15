@@ -3,6 +3,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { HOME_PATH, COMPONENT_PATH, COMPONENT_PDF_PATH } from '@/constants/menu';
 import React from 'react'
 import PdfDemo from './PdfDemo';
+import PdfResume from '@/components/PdfRenderer/examples/PdfResume';
 
 const breadcrumbItems = [
   { label: 'Home', link: HOME_PATH },
@@ -23,6 +24,20 @@ const PdfPage = () => {
           </CardHeader>
           <CardContent>
             <PdfDemo />
+          </CardContent>
+          <CardFooter>
+          </CardFooter>
+        </Card>
+      </section>
+
+      <section className='mt-4'>
+        <Card>
+          <CardHeader>
+            <CardTitle>PDF Resume</CardTitle>
+            <CardDescription></CardDescription>
+          </CardHeader>
+          <CardContent>
+            <PdfResume />
           </CardContent>
           <CardFooter>
           </CardFooter>
