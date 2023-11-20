@@ -1,26 +1,27 @@
 "use client";
+
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react'
 import { useLocalStorage, useOnClickOutside } from "usehooks-ts";
 import { usePathname } from 'next/navigation'
 
-import { CiViewList } from "react-icons/ci";
-import { MdChairAlt } from "react-icons/md";
 import { AiOutlineFolderAdd, AiOutlineSearch, AiOutlineSetting } from "react-icons/ai";
 import { INITIAL_DEFAULT_MENU_LIST, SELECTED_MENU_NAME, componentMenu, hookMenu, mainMenu, navLinks, otherMenu, toolMenu } from '@/constants/menu';
 import SvgIcon from '@/assets/SvgIcon';
 import { common } from '@/constants';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 import MenuSelector from './MenuSelector';
 import { Input } from '../ui/input';
+
+import { Locale } from '@/i18n.config'
 
 interface SidebarProps {
   sidebarOpen: boolean;
   setSidebarOpen(open: boolean): void;
+  lang: Locale;
 };
 
 const MenuList = (props: any) => {
-  const { navLink, pathname, setSidebarOpen } = props;
+  const { navLink, pathname, setSidebarOpen, lang } = props;
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   // Filter the menu items based on the search query
@@ -54,7 +55,7 @@ const MenuList = (props: any) => {
         {filteredMenu.length > 0 ? filteredMenu.map((menu: any, index: any) => (
           <li key={menu.title + index}>
             <Link
-              href={menu.link || ""}
+              href={`/${lang}` + menu.link || ""}
               onClick={() => setSidebarOpen(false)}
               className={`group relative flex items-center gap-2.5 rounded-sm 
                 py-2 px-4 font-medium text-sidebarlinktext duration-300 ease-in-out 
@@ -79,10 +80,10 @@ const MenuList = (props: any) => {
   );
 };
 
-const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
-  const [selectedMenu, setSelectedMenu] = useLocalStorage<any>(SELECTED_MENU_NAME, null);
+const Sidebar = ({ sidebarOpen, setSidebarOpen, lang }: SidebarProps) => {
+  const [selectedMenu, setSelectedMenu] = useLocalStorage<any>(SELECTED_MENU_NAME, true);
   // const { items: menuItems } = INITIAL_DEFAULT_MENU_LIST;
-  const { items: menuItems } = selectedMenu || INITIAL_DEFAULT_MENU_LIST;
+  const { items: menuItems } = INITIAL_DEFAULT_MENU_LIST;
 
   const pathname = usePathname();
   
@@ -111,7 +112,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     setSidebarOpen(false);
   });
 
-  const renderMenuList = (navLink: any, index: number, setSidebarOpen: any) => (
+  const renderMenuList = (navLink: any, index: number, setSidebarOpen: any, lang: Locale) => (
     <div key={navLink.id + index}>
       {navLink.name && (
         <h3 className="mb-4 ml-4 text-sm font-semibold text-gray-400 dark:text-gray-400">
@@ -119,7 +120,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         </h3>
       )}
   
-      <MenuList navLink={navLink} pathname={pathname} setSidebarOpen={setSidebarOpen} />
+      <MenuList navLink={navLink} pathname={pathname} setSidebarOpen={setSidebarOpen} lang={lang} />
     </div>
   );
 
@@ -173,8 +174,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           {menuItems && menuItems.length > 0
           ? navLinks
               .filter((navLink) => menuItems.includes(navLink.id))
-              .map((navLink, index) => renderMenuList(navLink, index, setSidebarOpen))
-          : navLinks.map((navLink, index) => renderMenuList(navLink, index, setSidebarOpen))}
+              .map((navLink, index) => renderMenuList(navLink, index, setSidebarOpen, lang))
+          : navLinks.map((navLink, index) => renderMenuList(navLink, index, setSidebarOpen, lang))}
 
           <div className='h-24'></div>
         </nav>

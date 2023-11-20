@@ -3,7 +3,8 @@ import React, { FC } from 'react'
 import KeyMetricSection from './KeyMetricSection'
 import MentionsSentiment from './MentionsSentiment'
 import CompareCompetitors from './CompareCompetitors'
-import useTranslation from 'next-translate/useTranslation'
+import { getDictionary } from '@/lib/dictionary'
+import { Locale } from '@/i18n.config'
 
 const dummyData = [
   {
@@ -44,13 +45,17 @@ const dummyData = [
   },
 ]
 
-const GameAnalysisPage: FC = () => {
-  const { t, lang } = useTranslation();
-
+const GameAnalysisPage = async ({
+  params: { lang }
+}: {
+  params: { lang: Locale }
+}) => {
+  const { page } = await getDictionary(lang)
+  
   return (
     <div>
       <div className='bg-white dark:bg-gray-900 text-lg p-4 font-bold shadow-lg'>
-        {t("Performance")}
+        {page['game-analysis'].performance}
       </div>
       <div className='flex pt-5 pb-3 font-bold text-base'>
         <div className='pl-4'>

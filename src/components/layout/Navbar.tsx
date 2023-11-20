@@ -2,6 +2,7 @@ import React from 'react'
 import { ModeToggle } from '../ModeToggle';
 import { common } from '@/constants';
 import ProfileSelector from './ProfileSelector';
+import LocaleSwitcher from '../LocaleSwitcher';
 
 type Props = {
   sidebarOpen: boolean
@@ -34,6 +35,7 @@ const Navbar = (props: Props) => {
                 {/* <ThemeChanger />Profile */}
                 <ProfileSelector />
                 <ModeToggle />
+                <LocaleSwitcher />
                 &nbsp;
               </div>
             </div>

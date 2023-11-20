@@ -289,6 +289,12 @@ export const SELECTED_MENU_NAME = "selectedMenu";
 export const INITIAL_DEFAULT_MENU_LIST = {
   items: [
     "main",
+    "tool",
+    "component",
+    "util",
+    "sample-design",
+    "hooks",
     "external",
+    "other",
   ],
 };

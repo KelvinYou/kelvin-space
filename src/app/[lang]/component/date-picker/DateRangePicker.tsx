@@ -4,7 +4,7 @@ import React, { type FC, useState, useEffect, useRef } from 'react'
 import { Button } from "@/components/ui/button"
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Calendar } from '@/components/ui/calendar'
-import { DateInput } from '@/app/component/date-picker/DateInput'
+import { DateInput } from '@/app/[lang]/component/date-picker/DateInput'
 import { Label } from '@/components/ui/label'
 import {
   Select,
