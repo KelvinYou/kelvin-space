@@ -49,3 +49,7 @@ export default function LocaleSwitcher() {
 
   )
 }
+
+// Reference: 
+
+// https://www.youtube.com/watch?v=1S7yFzU2ulg
