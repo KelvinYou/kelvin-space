@@ -1,7 +1,12 @@
 {
   "page": {
+    "home": {
+      "title": "Welcome to Kelvin's Space!",
+      "subtitle": "Explore a collection of React components, tools, etc."
+    },
     "game-analysis": {
-      "performance": "Performance"
+      "performance": "Performance",
+      "subtitle": "Key Metrics"
     }
   }
 }

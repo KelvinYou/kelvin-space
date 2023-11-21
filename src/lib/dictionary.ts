@@ -7,4 +7,15 @@ const dictionaries = {
   ms: () => import('@/dictionaries/ms.json').then(module => module.default)
 }
 
-export const getDictionary = async (locale: Locale) => dictionaries[locale]()
+export const getDictionary = async (locale: Locale) => {
+  if (!Object.keys(dictionaries).includes(locale)) {
+    return await dictionaries['en']();
+  }
+
+  const dictionaryFunction = dictionaries[locale];
+  if (!dictionaryFunction) {
+    throw new Error(`Dictionary function for locale '${locale}' not found`);
+  }
+
+  return await dictionaryFunction();
+};

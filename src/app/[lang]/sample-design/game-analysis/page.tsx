@@ -59,7 +59,7 @@ const GameAnalysisPage = async ({
       </div>
       <div className='flex pt-5 pb-3 font-bold text-base'>
         <div className='pl-4'>
-          Key Metrics
+          {page['game-analysis'].subtitle}
         </div>
       </div>
 

@@ -1,7 +1,12 @@
 {
   "page": {
+    "home": {
+      "title": "Selamat datang ke Kelvin's Space!",
+      "subtitle": "Terokai koleksi komponen, alatan React, dsb."
+    },
     "game-analysis": {
-      "performance": "Prestasi"
+      "performance": "Prestasi",
+      "subtitle": "Metrik Utama"
     }
   }
 }

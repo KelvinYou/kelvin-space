@@ -6,6 +6,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { i18n } from '@/i18n.config'
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
+import { Languages } from 'lucide-react'
 
 export default function LocaleSwitcher() {
   const pathName = usePathname()
@@ -27,7 +28,7 @@ export default function LocaleSwitcher() {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="outline" size="icon">
-            <span>Lc</span>
+            <Languages />
             <span className="sr-only">Toggle locale</span>
           </Button>
         </DropdownMenuTrigger>
@@ -53,3 +54,4 @@ export default function LocaleSwitcher() {
 // Reference: 
 
 // https://www.youtube.com/watch?v=1S7yFzU2ulg
+// https://locize.com/blog/next-app-dir-i18n/

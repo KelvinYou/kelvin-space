@@ -63,13 +63,15 @@ const MenuList = (props: any) => {
                   pathname === menu.link && "bg-gray-200 dark:bg-gray-800"
                 } dark:hover:bg-meta-4`}
             >
-              {"icon" in menu && menu.icon && (
-                <SvgIcon
-                  type={menu.icon}
-                  size={24}
-                  className=" fill-black dark:fill-white"
-                />
-              )}
+              <div className='w-[24px]'>
+                {"icon" in menu && menu.icon && (
+                  <SvgIcon
+                    type={menu.icon}
+                    size={24}
+                    className=" fill-black dark:fill-white"
+                  />
+                )}
+              </div>
 
               <span className="ml-3">{menu.title}</span>
             </Link>

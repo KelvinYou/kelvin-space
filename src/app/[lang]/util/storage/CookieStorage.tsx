@@ -6,7 +6,7 @@ const CookieStorage = () => {
   const hasCookie = cookiesList.has('name')
 
 
-  console.log("cookiesList: ", hasCookie)
+  // console.log("cookiesList: ", hasCookie)
 
   return (
     <div>

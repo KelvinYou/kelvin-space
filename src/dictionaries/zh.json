@@ -1,7 +1,12 @@
 {
   "page": {
+    "home": {
+      "title": "欢迎来到 Kelvin's Space!",
+      "subtitle": "探索 React 组件、工具等的集合。"
+    },
     "game-analysis": {
-      "performance": "表现"
+      "performance": "表现",
+      "subtitle": "关键指标"
     }
   }
 }
