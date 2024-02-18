@@ -23,6 +23,12 @@ function getLocale(request: NextRequest): string | undefined {
 export function middleware(request: NextRequest) {
 
   const pathname = request.nextUrl.pathname
+
+  // Skip requests for items in the public directory
+  if (PUBLIC_FILE.test(pathname)) {
+    return NextResponse.next(); // or return NextResponse.fromRequest(request);
+  }
+
   const pathnameIsMissingLocale = i18n.locales.every(
     locale => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   )
