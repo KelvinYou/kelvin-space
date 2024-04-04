@@ -1,5 +1,5 @@
 
-import { PDFDownloadLink } from '.';
+import { PDFDownloadLink } from '..';
 import React, { FC } from 'react'
 
 interface PdfViewProps {

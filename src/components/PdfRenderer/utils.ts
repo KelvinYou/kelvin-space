@@ -1,5 +1,3 @@
-// File: DynamicNoSSR.tsx
-
 import dynamic from 'next/dynamic';
 
 const DynamicNoSSR = <T extends {}>(

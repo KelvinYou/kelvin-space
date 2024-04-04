@@ -27,7 +27,6 @@ const PdfResume: FC = () => {
         </PdfDownloader>
       </div>
 
-
       <div className='mt-4 h-[500px]'>
         <PdfViewer>
           <PDFResumeDocument />

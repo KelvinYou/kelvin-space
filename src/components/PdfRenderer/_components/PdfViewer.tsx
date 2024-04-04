@@ -1,7 +1,7 @@
 
 
 import React, { ReactNode } from 'react';
-import { PDFViewer } from '.';
+import { PDFViewer } from '..';
 
 interface PdfViewProps {
   children: React.JSX.Element;
@@ -9,9 +9,12 @@ interface PdfViewProps {
 
 const PdfViewer: React.FC<PdfViewProps> = ({ children }) => {
   return (
-    <PDFViewer className='w-full h-full'>
+    <div className="pdf-container h-full">
+    <PDFViewer className='w-full h-full pdf-container '>
       {children}
     </PDFViewer>
+    </div>
+
   );
 };
 

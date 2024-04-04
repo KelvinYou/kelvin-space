@@ -1,6 +1,6 @@
 import ReactPDF from '@react-pdf/renderer';
 import dynamic from 'next/dynamic';
-import DynamicNoSSR from './DynamicNoSSR';
+import DynamicNoSSR from './utils';
 
 export const {
   G,
@@ -12,6 +12,7 @@ export const {
   Note,
   Path,
   Rect,
+  Font,
   Line,
   Stop,
   Defs,
@@ -28,11 +29,10 @@ export const {
   RadialGradient,
   StyleSheet,
   PDFDownloadLink,
+  PDFViewer
 } = ReactPDF;
 
 export type Style = ReactPDF.Styles[string];
 
-export const PdfViewer = DynamicNoSSR(() => import('./PdfViewer'));
-export const PdfDownloader = DynamicNoSSR(() => import('./PdfDownloader'));
-
-export * from '@react-pdf/renderer';
+export const PdfViewer = DynamicNoSSR(() => import('./_components/PdfViewer'));
+export const PdfDownloader = DynamicNoSSR(() => import('./_components/PdfDownloader'));
