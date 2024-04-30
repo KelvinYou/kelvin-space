@@ -107,16 +107,16 @@ export const componentMenu: MainMenu[] = [
 
 export const UTIL_PATH = "/util";
 
-export const UTIL_MOMENT_PATH = UTIL_PATH + "/moment";
+export const UTIL_DATE_PATH = UTIL_PATH + "/date";
 export const UTIL_TEXT_PATH = UTIL_PATH + "/text";
 export const UTIL_CRYPTO_PATH = UTIL_PATH + "/crypto";
 export const UTIL_STORAGE_PATH = UTIL_PATH + "/storage";
 
 export const utilMenu: MainMenu[] = [
   {
-    id: "moment",
-    title: "Moment",
-    link: UTIL_MOMENT_PATH,
+    id: "date",
+    title: "Date",
+    link: UTIL_DATE_PATH,
     icon: ICON_TYPE.CLOCK_OUTLINE,
   },
   {

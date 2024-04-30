@@ -5,6 +5,7 @@ import { COMPONENT_PATH, COMPONENT_TABLE_PATH, HOME_PATH } from '@/constants/men
 import BreadCrumb from '@/components/BreadCrumb'
 import { TableDemo } from './TableDemo'
 import { DataTableDemo } from './DataTableDemo'
+import TableComponentDemo from './TableComponentDemo'
 
 export const metadata: Metadata = {
   title: 'Table | Kelvin You\'s Space',
@@ -49,6 +50,25 @@ const Page = () => {
           </CardHeader>
           <CardContent>
             <DataTableDemo />
+          </CardContent>
+          <CardFooter>
+            {/* <p>Reference: 
+              <a href="https://echarts.apache.org/examples/en/index.html" target="_blank">
+                https://echarts.apache.org/examples/en/index.html
+              </a>
+            </p> */}
+          </CardFooter>
+        </Card>
+      </div>
+
+      <div className='mt-4'>
+        <Card>
+          <CardHeader>
+            <CardTitle>Table Component</CardTitle>
+            <CardDescription>Sort by clicking on title</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <TableComponentDemo />
           </CardContent>
           <CardFooter>
             {/* <p>Reference: 

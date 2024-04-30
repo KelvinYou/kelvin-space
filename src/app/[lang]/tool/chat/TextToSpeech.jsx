@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import { useSpeechSynthesis } from 'react-speech-kit';
 
 const TextToSpeech = () => {
-  const [text, setText] = useState('Welcome to My Space! Don\'t be shy to follow my LinkedIn');
+  const [text, setText] = useState('Hi, can you hear me?');
   const [selectedVoice, setSelectedVoice] = useState(null);
   const { speak, voices } = useSpeechSynthesis();
 

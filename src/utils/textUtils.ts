@@ -54,3 +54,12 @@ export const formatNumberAsAbbreviation = (input: string | number): string => {
 
   return number.toFixed(3).replace(/\.0+$|(\.[0-9]*[1-9])0+$/, '$1') + ' ' + abbreviations[index];
 }
+
+export const toTitleCase = (str: string) => {
+  return str.replace(
+    /\w\S*/g,
+    function(txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
+  );
+}
