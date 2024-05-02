@@ -1,5 +1,4 @@
-
-import React, { FC } from 'react'
+import React from 'react'
 import KeyMetricSection from './KeyMetricSection'
 import MentionsSentiment from './MentionsSentiment'
 import CompareCompetitors from './CompareCompetitors'
@@ -50,16 +49,16 @@ const GameAnalysisPage = async ({
 }: {
   params: { lang: Locale }
 }) => {
-  const { page } = await getDictionary(lang)
-  
+  const locale = (await getDictionary(lang)).page['game-analysis'];
+
   return (
     <div>
       <div className='bg-white dark:bg-gray-900 text-lg p-4 font-bold shadow-lg'>
-        {page['game-analysis'].performance}
+        {locale.performance}
       </div>
       <div className='flex pt-5 pb-3 font-bold text-base'>
         <div className='pl-4'>
-          {page['game-analysis'].subtitle}
+          {locale.subtitle}
         </div>
       </div>
 

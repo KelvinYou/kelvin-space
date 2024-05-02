@@ -111,6 +111,7 @@ export const UTIL_DATE_PATH = UTIL_PATH + "/date";
 export const UTIL_TEXT_PATH = UTIL_PATH + "/text";
 export const UTIL_CRYPTO_PATH = UTIL_PATH + "/crypto";
 export const UTIL_STORAGE_PATH = UTIL_PATH + "/storage";
+export const UTIL_JSON_PATH = UTIL_PATH + "/json-converter";
 
 export const utilMenu: MainMenu[] = [
   {
@@ -136,6 +137,11 @@ export const utilMenu: MainMenu[] = [
     title: "Storage",
     link: UTIL_STORAGE_PATH,
     // icon: ICON_TYPE.FILE_LOCK,
+  },
+  {
+    id: "json-converter",
+    title: "JSON Converter",
+    link: UTIL_JSON_PATH,
   },
 ];
 
