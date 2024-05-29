@@ -18,7 +18,7 @@ const KeyMetricCard: React.FC<KeyMetricCardProps> = ({ cardContext }) => {
 
   return (
     <Card className='hover:shadow-lg min-w-[160px] sm:w-auto hover:cursor-pointer 
-    bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white via-gray-100 to-gray-300
+    bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white via-green-100 to-blue-200
     dark:from-gray-700 dark:via-gray-900 dark:to-black'>
       <CardContent className='p-5'>
         <Tooltip>
@@ -58,7 +58,7 @@ const KeyMetricSection: React.FC<any> = (props) => {
   const { dummyData } = props;
 
   return (
-    <section className="px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
+    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
       {dummyData.map((dummy: any, index: number) => {
         return (
           <KeyMetricCard key={index} cardContext={dummy}/>

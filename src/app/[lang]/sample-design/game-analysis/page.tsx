@@ -4,6 +4,7 @@ import MentionsSentiment from './MentionsSentiment'
 import CompareCompetitors from './CompareCompetitors'
 import { getDictionary } from '@/lib/dictionary'
 import { Locale } from '@/i18n.config'
+import Filter from './Filter'
 
 const dummyData = [
   {
@@ -52,27 +53,33 @@ const GameAnalysisPage = async ({
   const locale = (await getDictionary(lang)).page['game-analysis'];
 
   return (
-    <div>
+    <>
       <div className='bg-white dark:bg-gray-900 text-lg p-4 font-bold shadow-lg'>
         {locale.performance}
       </div>
-      <div className='flex pt-5 pb-3 font-bold text-base'>
-        <div className='pl-4'>
+
+
+      <div className='px-6 pt-6'>
+        <Filter />
+
+        <div className='flex pt-5 pb-3 font-bold text-base'>
           {locale.subtitle}
         </div>
+
+        <KeyMetricSection dummyData={dummyData} />
+
+        <section className="mt-5 grid grid-cols-1 gap-4 xl:grid-cols-5 lg:gap-4">
+          <div className="xl:col-span-3">
+            <MentionsSentiment />
+          </div>
+          <div className="xl:col-span-2">
+            <CompareCompetitors />
+          </div>
+        </section>
       </div>
 
-      <KeyMetricSection dummyData={dummyData} />
 
-      <section className="mt-5 px-4 grid grid-cols-1 gap-4 xl:grid-cols-5 lg:gap-4">
-        <div className="xl:col-span-3">
-          <MentionsSentiment />
-        </div>
-        <div className="xl:col-span-2">
-          <CompareCompetitors />
-        </div>
-      </section>
-    </div>
+    </>
   )
 }
 
