@@ -103,6 +103,11 @@ export const componentMenu: MainMenu[] = [
     link: COMPONENT_PDF_PATH,
     // icon: ICON_TYPE.TEXT,
   },
+  {
+    id: "resizable",
+    title: "Resizable",
+    link: COMPONENT_PATH + "/resizable",
+  }
 ];
 
 export const UTIL_PATH = "/util";
